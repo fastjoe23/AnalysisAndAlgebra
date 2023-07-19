@@ -1,0 +1,541 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{booktabs}
+
+\usetheme{DHBW}
+
+\title{Matrizen und lineare Gleichungssysteme}
+\subtitle{Mathematik 1 für Wirtschaftsinformatiker}
+\author{Prof. Dr. Jonas Offtermatt}
+\date{\today}
+
+\begin{document}
+
+\subsection{Matrizen}
+\begin{frame}
+  \frametitle{Matrizen}
+  
+  Eine Matrix ist eine rechteckige Anordnung von Zahlen in Zeilen und Spalten. 
+  \[
+A = \begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}
+\]
+
+  
+  Eine Matrix $A$ mit $m$ Zeilen und $n$ Spalten wird oft als $m \times n$-Matrix bezeichnet. Die Elemente der Matrix werden als $a_{ij} \in \mathbb{R}$ bezeichnet, wobei $i$ die Zeilennummer und $j$ die Spaltennummer angibt.
+  
+  \vspace{0.3cm}
+  Matrizen sind ein wichtiges
+Werkzeug in der linearen Algebra und werden in vielen Bereichen
+der Mathematik und Informatik verwendet.
+  \end{frame}
+
+\begin{frame}
+    \frametitle{Matrizen}
+  \textbf{Beispiele}:\\
+   Eine $2 \times 2$-Matrix $A$, eine $3 \times 3$-Matrix $B$. 
+  
+  \[ 
+  A = \begin{bmatrix}
+    2 & 3 \\
+    4 & 1 \\
+  \end{bmatrix}
+  \text{ , }
+  B = \begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+    7 & 8 & 9 \\
+  \end{bmatrix}
+  \]
+  Eine $2 \times 3$-Matrix $C$, eine $3 \times 4$-Matrix $D$.
+  \[
+C = \begin{bmatrix}
+    1 & 2 & 3 \\
+    4 & 5 & 6 \\
+\end{bmatrix}
+\text{ , }
+D = \begin{bmatrix}
+    7 & 8 & 9 & 10 \\
+    11 & 12 & 13 & 14 \\
+    15 & 16 & 17 & 18 \\
+\end{bmatrix}
+\]
+
+\end{frame}
+
+\subsection{Rechenregeln für Matrizen}
+\begin{frame}
+  \frametitle{Addition von Matrizen}
+  
+  Die Addition von zwei Matrizen ist definiert, wenn die Matrizen die gleiche Größe haben. Die Addition erfolgt elementweise, indem die entsprechenden Elemente der Matrizen addiert werden.
+  
+  \vspace{0.3cm}
+  
+  \textbf{Beispiel}: Gegeben sind die Matrizen $A$ und $B$ mit der gleichen Größe:
+  
+  \[
+  A = \begin{bmatrix}
+    1 & 2 \\
+    3 & 4 \\
+  \end{bmatrix}
+  \quad
+  B = \begin{bmatrix}
+    5 & 6 \\
+    7 & 8 \\
+  \end{bmatrix}
+  \]
+  
+  Die Addition von $A$ und $B$ ergibt die Matrix $C$:
+  
+  \[
+  C = A + B = \begin{bmatrix}
+    1+5 & 2+6 \\
+    3+7 & 4+8 \\
+  \end{bmatrix}
+  = \begin{bmatrix}
+    6 & 8 \\
+    10 & 12 \\
+  \end{bmatrix}
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiplikation von Matrizen}
+  
+  Die Multiplikation von Matrizen ist definiert, wenn die Anzahl der Spalten der ersten Matrix gleich der Anzahl der Zeilen der zweiten Matrix ist. Das Ergebnis ist eine neue Matrix, bei der jeder Eintrag das Skalarprodukt einer Zeile der ersten Matrix und einer Spalte der zweiten Matrix ist.
+  
+  \vspace{0.2cm}
+  
+  Beispiel: Gegeben sind die Matrizen $A$ und $B$ mit den folgenden Größen:
+  
+  \[
+  A = \begin{bmatrix}
+    a & b \\
+    c & d \\
+    e & f \\
+  \end{bmatrix}
+  \quad
+  B = \begin{bmatrix}
+    x & y & z \\
+    w & v & u \\
+  \end{bmatrix}
+  \]
+  
+  Die Multiplikation von $A$ und $B$ ergibt die Matrix $C$:
+  
+  \[
+  C = A \cdot B = \begin{bmatrix}
+    ax + bw & ay + bv & az + bu \\
+    cx + dw & cy + dv & cz + du \\
+    ex + fw & ey + fv & ez + fu \\
+  \end{bmatrix}
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Multiplikation von Matrizen}
+  Sieht kompliziert aus? Ist es aber nicht. Einfacher Merksatz:
+
+
+  \begin{center}
+    \huge
+    \textit{Zeile mal Spalte}
+  \end{center}
+  \begin{center}
+  \begin{tabular}{c|c}
+    &$\begin{pmatrix}
+      - & \diamond & - \\
+      - & \dagger & - \\
+      - & \star & - \\
+    \end{pmatrix}$\\
+    \\
+    \hline
+    \\
+    $\begin{pmatrix}
+      - & - & - \\
+      \diamond & \dagger & \star \\
+      - & - & - \\
+    \end{pmatrix}$ & $\begin{pmatrix}
+      - & - & - \\
+      - &\diamond \diamond + \dagger \dagger +\star \star & - \\
+      - & - & - \\
+    \end{pmatrix}$  
+  \end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Weitere Rechenregeln für Matrizen}
+  
+  \textbf{Kommutativität der Addition:}
+  $A + B = B + A$
+  
+  \vspace{0.3cm}
+  
+  \textbf{Assoziativität der Addition:}
+  $A + (B + C) = (A + B) + C$
+  
+  \vspace{0.3cm}
+  
+  \textbf{Multiplikation mit einem Skalar:}
+  $\lambda \cdot (A + B) = \lambda \cdot A + \lambda \cdot B$
+  
+  \vspace{0.3cm}
+  
+  \textbf{Assoziativität des Produkts:}
+  $(A \cdot B) \cdot C = A \cdot (B \cdot C)$
+  
+  \vspace{0.3cm}
+  
+  \textbf{Distributivgesetz:}
+  $A \cdot (B + C) = A \cdot B + A \cdot C$
+  
+  $(A + B) \cdot C = A \cdot C + B \cdot C$
+  
+  \vspace{0.3cm}
+  
+  \textbf{Transposition der Addition:}
+  $(A + B)^T = A^T + B^T$
+  
+  \vspace{0.3cm}
+  
+  \textbf{Transposition des Produkts:}
+  $(A \cdot B)^T = B^T \cdot A^T$
+  \end{frame}
+
+
+\subsection{Spezielle Matrizen}
+\begin{frame}
+  \frametitle{Spezielle Matrizen}
+  \begin{tabular}{cc}
+    \textbf{Quadratische Matrix:} & \textbf{Obere Dreiecksmatrix:}\\ 
+    $\begin{bmatrix}
+      a & b & c & d \\
+      e & f & g & h \\
+      i & j & k & l \\
+      m & n & o & p \\
+    \end{bmatrix}
+      $ & $ \begin{bmatrix}
+        1 & 2 & 3 & 4 \\
+        0 & 5 & 6 & 7 \\
+        0 & 0 & 8 & 9 \\
+        0 & 0 & 0 & 10 \\       
+      \end{bmatrix}$\\
+      $m=n$ &\\
+      \\
+      \textbf{Einheitsmatrix:} & \textbf{Untere Dreiecksmatrix:} \\
+     $ \begin{bmatrix}
+      1 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 \\
+      0 & 0 & 1 & 0 \\
+      0 & 0 & 0 & 1 \\
+    \end{bmatrix}$ 
+    &
+    $ I = \begin{bmatrix}
+      1 & 0 & 0 & 0 \\
+      2 & 3 & 0 & 0 \\
+      4 & 5 & 6 & 0 \\
+      7 & 8 & 9 & 10 \\       
+    \end{bmatrix}$\\   
+  \end{tabular}\\
+  \vspace{0.3cm}
+  Es gilt $A\cdot I = I \cdot A = A$ für alle Matrizen $A$.
+  
+\end{frame}
+
+\subsection{Rang einer Matrix}
+\begin{frame}
+  \frametitle{Rang einer Matrix}
+  
+  \begin{block}{Rang einer Matrix}
+  Der Spaltenrang (Zeilenrang) einer $(m, n)$-Matrix $A$ ist definiert als die maximale Anzahl linear unabhängiger Spaltenvektoren (Zeilenvektoren) von A. Der gemeinsame Wert, der sowohl den Spaltenrang als auch den Zeilenrang darstellt, wird als Rang der Matrix A bezeichnet und mit $rg(A)$ bezeichnet.
+  \end{block}
+  
+  \vspace{0.3cm}
+  
+  Es gilt immer $rg(A) = rg(A^T) \leq \min\{m, n\}$, wobei $m, n \in \mathbb{N}$.
+  
+  \vspace{0.3cm}
+  
+  Wenn $rg(A) = \min\{m, n\}$ gilt, hat die Matrix A vollen Rang.
+  
+  \vspace{0.3cm}
+  
+  Der Rang einer Matrix igibt also  Auskunft über die Anzahl der linear unabhängigen Spalten- und Zeilenvektoren gibt.
+\end{frame}
+
+\subsection{Lineare Unabhängigkeit}
+\begin{frame}
+  \frametitle{Lineare Unabhängigkeit}
+  
+  Lineare Unabhängigkeit einer Menge an Vektoren (Zahlentupel, z.B. Zeilen oder Spalten einer Matrix) bedeutet, dass sich keiner der Vektoren durch eine lineare Kombination der anderen darstellen lässt.
+  
+  \vspace{0.3cm}
+  
+  \begin{block}{Definition: Lineare Unabhängigkeit}
+  
+  Eine Menge von Vektoren $\{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ ist linear unabhängig, wenn die Gleichung
+  
+  \[
+  c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \ldots + c_n \mathbf{v}_n = \mathbf{0}
+  \]
+  
+  nur die triviale Lösung $c_1 = c_2 = \ldots = c_n = 0$ hat. Andernfalls sind die Vektoren linear abhängig.
+  \end{block} 
+\end{frame}
+
+\subsection{Beispiel: Lineare Abhängigkeit und Unabhängigkeit}
+\begin{frame}
+  \frametitle{Beispiel: Lineare Abhängigkeit und Unabhängigkeit}
+  
+  \begin{columns}[t]
+    \column{0.5\textwidth}
+    \textbf{Linear abhängige Vektoren:}
+    
+    Gegeben seien die Vektoren $\mathbf{v}_1 = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}$ und $\mathbf{v}_2 = \begin{pmatrix} 2 \\ 4 \\ 6 \end{pmatrix}$. 
+    
+    Diese Vektoren sind linear abhängig, da $\mathbf{v}_2$ das Doppelte von $\mathbf{v}_1$ ist. Die lineare Kombination $2\mathbf{v}_1 - \mathbf{v}_2 = \mathbf{0}$ ergibt den Nullvektor.
+    
+    \column{0.5\textwidth}
+    \textbf{Linear unabhängige Vektoren:}
+    
+    Gegeben seien die Vektoren $\mathbf{u}_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$, $\mathbf{u}_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$ und $\mathbf{u}_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$. 
+    
+    Diese Vektoren sind linear unabhängig, da keiner der Vektoren durch lineare Kombinationen der anderen dargestellt werden kann.
+  \end{columns}
+\end{frame}
+
+\subsection{Beispiel: Rang einer Matrix}
+\begin{frame}
+  \frametitle{Beispiel: Rang einer Matrix}
+  
+  Betrachten wir zwei 3x3-Matrizen A und B:
+  
+  \vspace{0.3cm}
+  
+  \begin{center}
+  \begin{tabular}{cc}
+    
+    \textbf{Matrix A} & \textbf{Matrix B} \\
+    \\
+    
+    \(
+    \begin{bmatrix}
+      1 & 2 & 3 \\
+      4 & 5 & 6 \\
+      7 & 8 & 9 \\
+    \end{bmatrix}
+    \) & 
+    \(
+    \begin{bmatrix}
+      1 & 2 & 3 \\
+      2 & 3 & 5 \\
+      3 & 5 & 7 \\
+    \end{bmatrix}
+    \) \\
+    \\
+    Rang(A) = 3 & Rang(B) = 2 \\
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+\section{Lineares Gleichungssysteme }
+\begin{frame}
+  \frametitle{Beispiel: Ticketkauf}
+  
+  Sie möchten Tickets für ein Konzert kaufen. Der Preis für eine Eintrittskarte beträgt $50$ Euro und der Preis für eine VIP-Karte beträgt $120$ Euro. Sie möchten insgesamt 25 Tickets kaufen und dafür genau 1600 Euro ausgeben. Wie viele Eintrittskarten und wie viele VIP-Karten können Sie kaufen?
+  
+\end{frame}
+
+
+\begin{frame} 
+  
+  Um dieses Problem zu lösen, können wir ein lineares Gleichungssystem aufstellen:
+  
+    \begin{align*}
+    x &+ y &= 25 \\
+    50x &+ 120y &= 1600 \\
+  \end{align*}
+  
+  
+  Die erste Gleichung stellt sicher, dass insgesamt 25 Tickets gekauft werden, während die zweite sicherstellt, dass der Gesamtpreis 1600€ beträgt.
+\end{frame}
+
+
+\subsection{Beispiel: Lösung eines Gleichungssystems mit dem Gauss'schen Eliminationsverfahren}
+\begin{frame}
+  \frametitle{Lösung eines Gleichungssystems mit dem Gauss'schen Eliminationsverfahren}
+  Um dieses Gleichungssystem mit dem Gauss'schen Eliminationsverfahren zu lösen, gehen wir wie folgt vor:
+  
+  \vspace{0.3cm}
+  
+  \textbf{Schritt 1:} Multipliziere die erste Gleichung mit 50:
+  
+  \[
+  \begin{aligned}
+    50x + 50y &= 1250 \\
+    50x + 120y &= 1600 \\
+  \end{aligned}
+  \]
+  
+  \textbf{Schritt 2:} Subtrahiere die erste Gleichung von der zweiten Gleichung:
+  
+  \[
+  70y = 350 \quad \Rightarrow \quad y = 5
+  \]
+  
+  \textbf{Schritt 3:} Setze den Wert von $y$ in die erste Gleichung ein und löse nach $x$ auf:
+  
+  \[
+  x + 5 = 25 \quad \Rightarrow \quad x = 20
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Der Gaußsche Algorithmus}
+  
+  Der Gaußsche Algorithmus ermöglicht es, ein LGS in eine einfache Form zu bringen und die Lösungen des Gleichungssystems zu bestimmen.
+  \vspace{0.3cm}
+  
+  Erlaub sind dabei folgende Rechenoperationen:
+  
+  \begin{itemize}
+    \item Vertauschung zweier Zeilen
+    \item Multiplikation einer Gleichung mit einer Konstanten $\lambda \neq 0$
+    \item Addition eines Vielfachen einer Gleichung zu einer anderen Gleichung
+    \item Vertauschen zweier Unbekannter, d.h. vertauschen zweier Spalten
+  \end{itemize}
+  
+  \vspace{0.3cm}
+  Diese Rechenoperationen verändern die Lösung des Gleichungssystem nicht.  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineare Gleichungssysteme und Matrizen}
+  
+  Lineare Gleichungssysteme lassen sich auf elegante Weise mit Matrizen darstellen. Betrachten wir das allgemeine lineare Gleichungssystem:
+  
+    \begin{align*}
+    a_{11}x_1 &+ a_{12}x_2 + \ldots + a_{1n}x_n &= b_1 \\
+    a_{21}x_1 &+ a_{22}x_2 + \ldots + a_{2n}x_n &= b_2 \\
+   &\vdots   &\vdots \\
+    a_{m1}x_1 &+ a_{m2}x_2 + \ldots + a_{mn}x_n &= b_m \\
+  \end{align*}
+  mit Koeffizenten $a_{ij}$, $i\leq n$ und $j\leq m$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineare Gleichungssysteme und Matrizen}
+  Dieses Gleichungssystem kann in Matrixform geschrieben werden als:
+  
+  \[
+  \begin{bmatrix}
+    a_{11} & a_{12} & \ldots & a_{1n} \\
+    a_{21} & a_{22} & \ldots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \ldots & a_{mn} \\
+  \end{bmatrix}
+  \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n \\
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_m \\
+  \end{bmatrix}
+  \]
+  
+  Die linke Matrix wird als \textbf{Koeffizientenmatrix} bezeichnet und die rechte Spaltenmatrix enthält die Lösungen der Gleichungen.
+  
+  \vspace{0.3cm}
+  
+  Durch die Verwendung von Matrizen können lineare Gleichungssysteme kompakt dargestellt und effizient gelöst werden. Wichtiger noch, über sie kann die Lösbarkeit von Gleichungssystem bestimmt werden.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Lösbarkeitskriterium}
+  
+  Das lineare Gleichungssystem mit $n$ Unbekannten ist genau dann lösbar, falls der Rang der Matrix $A$ und der Rang der um den Vektor $\mathbf{b}$ erweiterten Matrix $(A, \mathbf{b})$ identisch sind, d. h. falls gilt $rg(A) = rg(A, \mathbf{b}) = k$.
+  
+  \vspace{0.3cm}
+  
+  \textbf{Anzahl der Lösungen:}
+  
+  \begin{itemize}
+    \item Falls $rg(A) \neq rg(A, \mathbf{b})$, gibt es keine Lösung.
+    \item Falls $rg(A) = rg(A, \mathbf{b}) = k$ und $k = n$, gibt es genau eine Lösung.
+    \item Falls $rg(A) = rg(A, \mathbf{b}) = k$ und $k < n$, gibt es unendlich viele Lösungen, wobei $n - k$ Unbekannte beliebig gewählt werden können.
+  \end{itemize}
+  
+  \vspace{0.3cm}
+  
+  Das Lösbarkreitskriterium ermöglicht es, die Lösbarkeit eines linearen Gleichungssystems zu überprüfen und gibt Aufschluss über die Anzahl der möglichen Lösungen.
+\end{frame}
+
+\subsection{Inverse einer Matrix}
+\begin{frame}
+  \frametitle{Inverse einer Matrix}
+  
+  Die Inverse einer quadratischen Matrix $A$ wird als $A^{-1}$ bezeichnet. Es gilt:
+  $$ A \cdot A^{-1} = I$$
+  \vspace{0.3cm}
+  Die Inverse einer Matrix kann wieder mit dem Eliminationsverfahren ermittelt werden. Man startet mit
+  \begin{center}
+    \begin{tabular}{c|c}
+      A & I\\      
+    \end{tabular}
+  \end{center}
+  und wendet so lange die erlaubten Rechenoperationen des Algorithmus auf beide Seiten an, bis auf der linken Seite die Einheitsmatrix steht. 
+  Rechts steht dann $A^{-1}$.
+  \begin{center}
+    \begin{tabular}{c|c}
+      A & I\\ 
+      \vdots \\
+      I & $A^{-1}$
+    \end{tabular}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{LGS und Inverse}
+  Die Inverse einer Matrix ermöglicht es, das Gleichungssystem $A \mathbf{x} = \mathbf{b}$ zu lösen, indem man beide Seiten der Gleichung mit $A^{-1}$ multipliziert:
+  
+  \[
+  A^{-1} (A \mathbf{x}) = A^{-1} \mathbf{b} \quad \Rightarrow \quad \mathbf{x} = A^{-1} \mathbf{b}
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{LGS und Inverse}
+  \textbf{Beispiel:}
+  
+  Betrachten wir die Matrix $A$ und den Vektor $\mathbf{b}$:
+  
+  \[
+  A = \begin{bmatrix} 2 & 3 \\ 1 & 4 \end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 7 \\ 10 \end{bmatrix}
+  \]
+  
+  Um das Gleichungssystem $A \mathbf{x} = \mathbf{b}$ zu lösen, berechnen wir die Inverse von $A$ und multiplizieren sie mit $\mathbf{b}$:
+  
+  \[
+  A^{-1} = \begin{bmatrix} 4/5 & -3/5 \\ -1/5 & 2/5 \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix} 4/5 & -3/5 \\ -1/5 & 2/5 \end{bmatrix} \begin{bmatrix} 7 \\ 10 \end{bmatrix} = \begin{bmatrix} 2 \\ 1 \end{bmatrix}
+  \]
+  
+  Daher ist die Lösung des Gleichungssystems $x_1 = 2$ und $x_2 = 1$. 
+\end{frame}
+
+
+\end{document}

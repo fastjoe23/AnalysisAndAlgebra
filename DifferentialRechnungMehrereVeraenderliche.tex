@@ -1,0 +1,209 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+
+\usetheme{DHBW} % Wähle das gewünschte Beamer-Theme
+
+\title{Funktionen mehrerer Veränderlicher}
+\subtitle{Mathematik 1 für Wirtschaftsinformatiker}
+\author{Prof. Dr. Jonas Offtermatt}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+  \framesubtitle{Grundlagen}
+  Funktionen mehrerer Veränderlicher ordnen jedem Punkt im Definitionsbereich einen Funktionswert zu.
+  \begin{itemize}
+    \item Schreibweise: $f: \mathbb{R}^n \to \mathbb{R}$
+    \item Beispiele:
+      \begin{itemize}
+        \item $f(x, y) = x^2 + y^2$ ist eine Funktion von zwei Veränderlichen $f: \mathbb{R}^2 \to \mathbb{R}$.
+        \item $g(x, y, z) = \sin(x) + \cos(y) - z^2$ ist eine Funktion von zwei Veränderlichen $f: \mathbb{R}^3 \to \mathbb{R}$.
+      \end{itemize}
+    \item Die Ableitung einer Funktion mehrerer Veränderlicher gibt die Änderungsrate der Funktion in einer bestimmten Richtung an.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+  \framesubtitle{Partielle Ableitungen}
+
+  Partielle Ableitungen werden verwendet, um die Ableitung einer Funktion mehrerer Veränderlicher nach einer einzelnen Veränderlichen zu berechnen.
+  \begin{itemize}
+    \item Die partielle Ableitung nach einer Veränderlichen wird berechnet, indem alle anderen Veränderlichen als Konstanten behandelt werden.
+    \item Schreibweise: $\frac{\partial f}{\partial x}$, $\frac{\partial f}{\partial y}$, etc.
+  \end{itemize}
+  Beispiele:
+      \begin{itemize}
+        \item Für $f(x, y) = x^2 + y^2$ ist $\frac{\partial f}{\partial x} = 2x$ und $\frac{\partial f}{\partial y} = 2y$.
+        \item Für $g(x, y, z) = \sin(x) + \cos(y) - z^2$ ist $\frac{\partial g}{\partial x} = \cos(x)$, $\frac{\partial g}{\partial y} = -\sin(y)$ und $\frac{\partial g}{\partial z} = -2z$.
+      \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+  \framesubtitle{Totale Ableitung und Gradient}
+
+  \begin{itemize}
+    \item Die totale Ableitung einer Funktion mehrerer Veränderlicher berücksichtigt die Änderungen aller Veränderlichen gleichzeitig.
+    \item Der Gradient einer Funktion ist ein Vektor, der aus den partiellen Ableitungen besteht und die Richtung des steilsten Anstiegs angibt.
+    \item Schreibweise: $\nabla f = \left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \ldots\right)$
+    \item Beispiele:
+      \begin{itemize}
+        \item Für $f(x, y) = x^2 + y^2$ ist $\nabla f = (2x, 2y)$.
+        \item Für $g(x, y, z) = \sin(x) + \cos(y) - z^2$ ist $\nabla g = (\cos(x), -\sin(y), -2z)$.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+    \framesubtitle{Die Hesse-Matrix}
+  
+    Die Hesse-Matrix ist eine Matrix, die Informationen über die Krümmung einer Funktion mehrerer Veränderlicher liefert. Sie wird aus den zweiten partiellen Ableitungen der Funktion gebildet.
+  
+    \vspace{1em}
+  
+    Die Hesse-Matrix $H$ einer Funktion $f(x, y)$ mit den partiellen Ableitungen $\frac{\partial^2 f}{\partial x^2}$, $\frac{\partial^2 f}{\partial y^2}$ und $\frac{\partial^2 f}{\partial x \partial y}$ sieht wie folgt aus:
+  
+    \[
+    H =
+    \begin{bmatrix}
+      \frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x \partial y} \\
+      \frac{\partial^2 f}{\partial y \partial x} & \frac{\partial^2 f}{\partial y^2}
+    \end{bmatrix}
+    \]
+  
+    \vspace{1em}
+  
+    Die Hesse-Matrix kann verwendet werden, um die Krümmung der Funktion an bestimmten Punkten zu analysieren und auf diese Weise Extremwerte zu identifizieren.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+    \framesubtitle{Die Hesse-Matrix}
+    \textbf{Beispiel:} Betrachten wir die Funktion $f(x, y) = x^2 + 2xy + y^2$. Die Hesse-Matrix von $f$ lautet:
+  
+  \[
+  H =
+  \begin{bmatrix}
+    2 & 2 \\
+    2 & 2
+  \end{bmatrix}
+  \]
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+    \framesubtitle{Beispiel-Schaubilder}
+  
+    \begin{center}
+        \begin{tikzpicture}
+ 
+            \begin{axis}[title={$f(x,y)= x^2 + 2xy + y^2$}]
+             
+            \addplot3 [
+                domain=-20:20,
+                domain y = -20:20,
+                samples = 20,
+                samples y = 8,
+                surf,
+                faceted color = teal] {x^2  + 2*x*y + y^2};
+             
+            \end{axis}
+             
+      \end{tikzpicture}
+    \end{center}
+  \end{frame}  
+  
+
+\begin{frame}
+    \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+    \framesubtitle{Beispiel-Schaubilder}
+  
+    \begin{center}
+        \begin{tikzpicture}
+ 
+            \begin{axis}[title={$f(x,y)= x^2 + y^2$}]
+             
+            \addplot3 [
+                domain=-10:10,
+                domain y = -10:10,
+                samples = 20,
+                samples y = 8,
+                surf,
+                faceted color = teal] {x^2 + y^2};
+             
+            \end{axis}
+             
+      \end{tikzpicture}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+    \framesubtitle{Beispiel-Schaubilder}
+  
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[title={$f(x,y)= \exp(-x^2-y^2)\cdot x$}]
+            \addplot3[
+                surf,
+            ]
+            {exp(-x^2-y^2)*x};
+            \end{axis}
+            \end{tikzpicture}
+    \end{center}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+    \framesubtitle{Berechnung von Extremwerten}
+  
+    Um Extremwerte einer Funktion mehrerer Veränderlicher zu berechnen, gehen wir wie folgt vor:
+   
+    \begin{enumerate}
+      \item Berechnung der partiellen Ableitungen $\frac{\partial f}{\partial x}$ und $\frac{\partial f}{\partial y}$.
+      \item Bestimmung der kritischen Punkte durch Lösen der Gleichungen $\frac{\partial f}{\partial x} = 0$ und $\frac{\partial f}{\partial y} = 0$.
+      \item Überprüfung der Kandidaten für Extremwerte, indem man die Hesse-Matrix verwendet.
+      \item Interpretation der Ergebnisse:
+        \begin{itemize}
+          \item Falls die Hesse-Matrix positiv definit ist und $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = 0$, handelt es sich um ein lokales Minimum.
+          \item Falls die Hesse-Matrix negativ definit ist und $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = 0$, handelt es sich um ein lokales Maximum.
+          \item Falls die Hesse-Matrix indefinit ist, handelt es sich um einen Sattelpunkt.
+          \item Falls die Hesse-Matrix semi-definit ist, sind weitere Untersuchungen erforderlich.
+        \end{itemize}
+    \end{enumerate}
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Ableitung von Funktionen mehrerer Veränderlicher}
+    \framesubtitle{Positive und negative Definitheit der Hesse-Matrix}
+  
+    Die Definitheit der Hesse-Matrix gibt Auskunft über die Krümmung einer Funktion mehrerer Veränderlicher an einem kritischen Punkt. Es gibt drei mögliche Fälle:
+  
+    \vspace{1em}
+  
+    \begin{itemize}
+      \item \textbf{Positiv definit:} Die Hesse-Matrix $H$ ist positiv definit, wenn für alle Vektoren $v \neq 0$ gilt: $v^T H v > 0$. Dies bedeutet, dass die Funktion an diesem Punkt ein lokales Minimum aufweist.
+  
+      \vspace{0.5em}
+  
+      \item \textbf{Negativ definit:} Die Hesse-Matrix $H$ ist negativ definit, wenn für alle Vektoren $v \neq 0$ gilt: $v^T H v < 0$. Dies bedeutet, dass die Funktion an diesem Punkt ein lokales Maximum aufweist.
+  
+      \vspace{0.5em}
+  
+      \item \textbf{Indefinit:} Die Hesse-Matrix $H$ ist indefinit, wenn es Vektoren $v_1$ und $v_2$ gibt, für die $v_1^T H v_1 > 0$ und $v_2^T H v_2 < 0$ gelten. Dies bedeutet, dass die Funktion an diesem Punkt einen Sattelpunkt aufweist.
+    \end{itemize}
+  \end{frame}
+  
+\end{document}

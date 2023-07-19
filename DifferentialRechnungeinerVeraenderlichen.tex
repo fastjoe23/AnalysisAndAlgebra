@@ -1,0 +1,315 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+\usepackage{booktabs}
+
+\usetheme{DHBW}
+
+\title{Differentialrechnung}
+\subtitle{Mathematik 1 für Wirtschaftsinformatiker}
+\author{Prof. Dr. Jonas Offtermatt}
+\date{\today}
+
+\begin{document}
+
+
+\begin{frame}
+  \frametitle{Funktionen und ihre Eigenschaften}
+  \framesubtitle{Einführung}
+
+  \begin{itemize}
+    \item Eine \textbf{Funktion} $f$ ordnet jedem Element aus einer Definitionsmenge $D$ genau ein Element aus einer Zielmenge $Z$ zu.
+    \item Schreibweise: $f: D \to Z$
+    \item Beispiele:
+      \begin{itemize}
+        \item $f(x) = 2x + 3$ ist eine lineare Funktion.
+        \item $g(x) = \sin(x)$ ist eine trigonometrische Funktion.
+      \end{itemize}
+    \item Eigenschaften von Funktionen:
+      \begin{itemize}
+        \item Definitionsbereich und Wertebereich
+        \item Injektivität, Surjektivität, Bijektivität
+        \item Differentierbarkeit
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Funktionen und ihre Eigenschaften}
+    \framesubtitle{Definitionsbereich und Wertebereich}
+  
+    \begin{itemize}
+      \item Der \textbf{Definitionsbereich} einer Funktion ist die Menge aller Werte, für welche die Funktion definiert ist.\\
+      \begin{scriptsize}
+        Beispiel: Für die Funktion $f(x) = \sqrt{x}$ ist der Definitionsbereich $D = [0, \infty)$, da die Wurzel aus negativen Zahlen nicht definiert ist.
+       \end{scriptsize}
+      \item Der \textbf{Wertebereich} einer Funktion ist die Menge aller Funktionswerte für die Elemente im Definitionsbereich.
+      \begin{scriptsize}
+        Beispiel: Für die Funktion $f(x) = x^2$ ist der Wertebereich $W = [0, \infty)$, da die Funktion immer nicht-negative Werte liefert.
+    \end{scriptsize}
+   \end{itemize}
+   \vspace*{-.5cm}
+    \begin{flushright}
+        \begin{tikzpicture}[scale=0.7]
+          % Definitionsbereich
+          \fill[blue!20] (-2.5, 0) rectangle (2.5, 4.25);
+          \draw[->] (-3, 0) -- (3, 0) node[right] {$x$};
+          \node[blue] at (0, -0.4) {Definitionsbereich};
+    
+          % Wertebereich
+          \draw[red, thick, domain=-2:2] plot (\x, {\x*\x});
+          \draw[->] (-3, 0) -- (3, 0);
+          \draw[->] (0, -.25) -- (0, 4.25) node[above=-0.2] {$f(x)$};
+          \node[red, rotate=90] at (-2.75, 2) {Wertebereich};
+        \end{tikzpicture}
+      \end{flushright}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Funktionen und ihre Eigenschaften}
+    \framesubtitle{Injektivität, Surjektivität und Bijektivität}
+  
+    \begin{itemize}
+      \item Eine Funktion $f$ ist \textbf{injektiv}, wenn jedem Funktionswert höchstens ein Element aus dem Definitionsbereich zugeordnet ist.\\
+      Definition: $$f(x_1) \neq f(x_2)   \text{ für alle }  x_1 \neq x_2$$         
+    \end{itemize}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+          \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+          \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+          \draw[blue, thick, domain=-1.5:1.5] plot (\x, \x);
+          \node[blue] at (-2, 1.5) {injektiv};
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.8]
+          \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+          \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+          \draw[red, thick, domain=-1.5:1.5] plot (\x, \x*\x -1.5);
+          \node[red] at (1.5, 1.5) {nicht injektiv};
+        \end{tikzpicture}
+      \end{center}
+  \end{frame}
+
+
+
+  \begin{frame}
+    \frametitle{Funktionen und ihre Eigenschaften}
+    \framesubtitle{Injektivität, Surjektivität und Bijektivität}
+  
+    \begin{itemize}   
+  \item Eine Funktion $f$ ist \textbf{surjektiv}, wenn jeder Funktionswert mindestens einem Element aus dem Zielbereich zugeordnet ist.\\
+  Definition: $$\text{Für jedes } y \text{ gibt es ein } x \text{ mit } f(x) = y$$
+\end{itemize}
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+      \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+      \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+      \draw[blue, thick, domain=-1.2:1.2] plot (\x, {\x^3});
+      \node[blue] at (-1.5, 1.5) {surjektiv};
+    \end{tikzpicture}
+    \begin{tikzpicture}[scale=0.8]
+        \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+        \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+        \draw[red, thick, domain=-1.5:1.5] plot (\x,{1.5* sin(2 * \x r)});
+        \node[red] at (1.5, -1.5) {nicht surjektiv};
+      \end{tikzpicture}
+  \end{center}
+\end{frame}    
+
+\begin{frame}
+    \frametitle{Funktionen und ihre Eigenschaften}
+    \framesubtitle{Injektivität, Surjektivität und Bijektivität}
+    \begin{itemize}
+        \item Eine Fuktion ist \textbf{bijektiv}, wenn sie sowohl injektiv, als auch surjektiv ist.
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Funktionen und ihre Eigenschaften}
+  \framesubtitle{Grenzwerte und Stetigkeit}
+
+  \begin{itemize}
+    \item Der \textbf{Grenzwert} $L$ einer Funktion $f(x)$ für $x$ gegen einen bestimmten Wert $a$ beschreibt das Verhalten der Funktion in der Nähe von $a$.
+    Schreibweise: $$\lim_{x \to a} f(x) = L$$
+    \item \textbf{Stetigkeit} einer Funktion:
+      \begin{itemize}
+        \item Eine Funktion $f(x)$ heißt \textbf{stetig} an der Stelle $a$, wenn gilt $$\lim_{x \to a} f(x) = f (\lim_{x \to a}) = f(a) $$  und $f(a)$ definiert ist.
+        \item Eine Funktion ist \textbf{stetig auf einem Intervall}, wenn sie an jeder Stelle in diesem Intervall stetig ist.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Funktionen und ihre Eigenschaften}
+    \framesubtitle{Beispiele für stetige und unstetige Funktionen}
+         \begin{tikzpicture}[scale=0.7]
+            \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+            \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+            \draw[blue, thick, domain=-1.5:1.5] plot (\x,{1.5* sin(2 * \x r)});
+            \node[blue] at (-1.5, 1.5) {stetig};
+        \end{tikzpicture}
+         \begin{tikzpicture}[scale=0.7]
+            \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+            \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+            \draw[blue, thick, domain=-1.5:1.5] plot (\x,{\x*\x});
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.7]
+            \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+            \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+            \draw[blue, thick, domain=-1.2:0] plot (\x,{\x^3});
+            \draw[blue, thick, domain=0:0.75] plot (\x,{\x});
+            \draw[blue, thick, domain=0.75:1.5] plot (\x,0.75);
+        \end{tikzpicture} 
+
+        \begin{tikzpicture}[scale=0.7]
+            \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+            \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+            \draw[red, thick, domain=-1.5:0] plot (\x,{\x});
+            \draw[red, thick, domain=0.01:1.5] plot (\x,{\x +1});
+            \node[red] at (-1.5, 1) {unstetig};            
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.7]
+            \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+            \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+            \draw[red, thick, domain=0.6:1.5] plot (\x,{1 / \x});
+            \draw[red, thick, domain=-1.5:-0.6] plot (\x,{1 / \x});
+         
+        \end{tikzpicture}
+        \begin{tikzpicture}[scale=0.7]
+            \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+            \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+            \draw[red,thick,-] (-1.5,-1.5) -- (-0.75,-1.5);
+            \draw[red,thick,-] (-0.75,-.5) -- (0.75,-.5);
+            \draw[red,thick,-] (0.75,.5) -- (1.5,.5);
+         
+        \end{tikzpicture}
+\end{frame}  
+
+\begin{frame}
+  \frametitle{Differentialrechnung}
+  \framesubtitle{Ableitungen und Ableitungsregeln}
+
+
+Die \textbf{Ableitung} einer Funktion $f(x)$ an einer Stelle $x_0$ beschreibt die Steigung der Funktion an dieser Stelle.\\
+
+Definition: $$f'(x_0)=\frac{df}{dx}(x_0)=\lim_{x \to x_0} \frac{f(x)-f(x_0)}{x - x_0}$$
+\begin{center}
+\begin{tikzpicture}
+    \draw[->] (-2, 0) -- (2, 0) node[right] {$x$};
+    \draw[->] (0, -.25) -- (0, 2) node[above] {$f(x)$};
+    \draw[blue, thick, domain=-1.5:1.5] plot (\x,{\x*\x});
+    \draw[red,dashed,domain=0.25:1.5] plot (\x, {2* \x -1});
+    \node[red] at (1.5,1) {$f'(x)$};
+
+\end{tikzpicture} 
+\end{center}   
+\end{frame}
+
+\begin{frame}
+  \frametitle{Differentialrechnung}
+  \framesubtitle{Ableitungsregeln}
+
+  \begin{itemize}
+    \item \textbf{Konstantenregel}: Die Ableitung einer Konstanten $c$ ist $0$.
+    \item \textbf{Faktorregel}: $c\cdot f(x) \longrightarrow c \cdot f'(x)$.
+    \item \textbf{Potenzregel}: $f(x) = x^n \longrightarrow f'(x) = n \cdot x^{n-1}$.
+    \item \textbf{Summenregel}: $f(x) + g(x) \longrightarrow f'(x) + g'(x)$.
+    \item \textbf{Produktregel}: $f(x) \cdot g(x) \longrightarrow f'(x) \cdot g(x) + f(x) \cdot g'(x)$.
+    \item \textbf{Quotientenregel}:  $\frac{f(x)}{g(x)} \longrightarrow \frac{f'(x) \cdot g(x) - f(x) \cdot g'(x)}{(g(x))^2}$.
+    \item \textbf{Kettenregel}:  $f(g(x)) \longrightarrow f'(g(x)) \cdot g'(x)$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Differentialrechnung}
+  \framesubtitle{Beispiele von elementaren Funktionen und ihren Ableitungen}
+
+  \begin{center}
+    \begin{tabular}{c|c}
+      
+      \textbf{Funktion} & \textbf{Ableitung} \\
+      \hline
+      $f(x) = x^n$ & $f'(x) = n \cdot x^{n-1}$ \\[.7ex]
+      
+      $f(x) = e^x$ & $f'(x) = e^x$ \\[.7ex]
+      
+      $f(x) = \sin(x)$ & $f'(x) = \cos(x)$ \\[.7ex]
+  
+      $f(x) = \cos(x)$ & $f'(x) = -\sin(x)$ \\[.7ex]
+  
+      $f(x) = \ln(x)$ & $f'(x) = \frac{1}{x}$ \\[.7ex]
+  
+      $f(x) = \frac{1}{x}$ & $f'(x) = -\frac{1}{x^2}$ \\[.7ex]
+  
+      $f(x) = \sqrt[n]{x}= x^{\frac{1}{n}}, n \in \mathbb{N}$ & $f'(x)=\frac{1}{n \sqrt[n]{x^{n-1}}}$
+  
+    \end{tabular}
+  \end{center}
+
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Differentialrechnung}
+  \framesubtitle{Die Bedeutung der ersten Ableitung für die Extremwertberechnung}
+
+Um Extremwerte einer Funktion zu finden, suchen wir nach Stellen, an denen die Steigung $0$ ist oder nicht existiert.
+ 
+  
+    \begin{tikzpicture}
+      \draw[->] (-2.5, 0) -- (2.5, 0) node[right] {$x$};
+      \draw[->] (0, -2) -- (0, 2) node[above] {$f(x)$};
+      \draw[blue, thick, domain=-2.25:2.25] plot (\x, {0.5*\x^3 - 2*\x});
+      \draw[red, dashed] (0.11, -1.5) -- (2.2, -1.5);
+      \draw[red, dashed] (-2.2, 1.5) -- (-0.1, 1.5);
+      \fill[black] (-1.15, 1.53) circle (1.5pt);
+      \fill[black] (1.15, -1.53) circle (1.5pt);
+      \node[black, above, xshift=-0.5cm] at (-1.15, 1.53) {Lokales Maximum};
+      \node[black, below, xshift=0.5cm] at (1.15, -1.53) {Lokales Minimum};
+    \end{tikzpicture}
+    \begin{tikzpicture}
+      \draw[->] (-1.75, 0) -- (1.75, 0) node[right] {$x$};
+      \draw[->] (0, -2) -- (0, 2) node[above] {$f'(x)$};
+      \draw[red, thick, domain=-1.5:1.5] plot (\x, {1.5*\x*\x - 2});
+    \end{tikzpicture}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Differentialrechnung}
+  \framesubtitle{Die Bedeutung der zweiten und dritten Ableitung für Extremwerte}
+  $$f''(x) = (f'(x))'=\frac{d f'}{dx}(x)$$
+  Die \textbf{zweite Ableitung} $f''(x)$ einer Funktion gibt uns Informationen über die Krümmung der Funktion an verschiedenen Stellen. Ist die Krümmung positiv, so ist die Funktion nach oben gewölbt (lokales Minimum). Ist sie negativ, so ist die Funktion nach unten gewölbt (lokales Maximum).
+
+  \vspace{1em}
+
+  Die \textbf{dritte Ableitung} einer Funktion gibt uns Informationen über die Änderung der Krümmung an verschiedenen Stellen.  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Differentialrechnung}
+  \framesubtitle{Beispiel: Maximierung der Studienleistung}
+    Sie möchten ihre Studienleistung maximieren und fragen sich, wie viele Stunden pro Woche Sie 
+    fürs Lernen aufwenden sollten. 
+
+    Nehmen wir an für Ihre Studienleistung in Abhängigkeit der Stunden pro Woche gelte:
+    $$L(x)=-0.001x^3-0.059x^2+9.942x$$
+  Wie viele Stunden sollten Sie also pro Woche lernen?
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Differentialrechnung}
+  \framesubtitle{Anwendungen der Differentialrechnung in der Wirtschaftsinformatik}
+
+  \begin{itemize}
+    \item Kostenfunktionen und Erlösfunktionen in der Wirtschaftsinformatik
+    \item Marginalanalyse: Bestimmung des Grenznutzens, der Grenzkosten und des optimalen Outputs
+    \item Optimierung: Finden von Extremstellen (Minimum oder Maximum) einer Funktion
+    \item Anwendungen in der Datenanalyse, Modellierung von Geschäftsprozessen und Entscheidungsunterstützung
+  \end{itemize}
+\end{frame}
+
+\end{document}

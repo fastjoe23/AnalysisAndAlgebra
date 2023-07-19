@@ -1,0 +1,193 @@
+\documentclass{beamer}
+\usepackage[ngerman]{babel}
+\usepackage{tikz}
+
+
+\usetheme{DHBW}
+
+\title{Finanzmathematik}
+\subtitle{Mathematik 1 für Wirtschaftsinformatiker}
+\author{Prof. Dr. Jonas Offtermatt}
+\date{\today}
+
+\begin{document}
+\section{Finanzmathematik}
+\subsection{Einfache Zinsrechnung}
+\begin{frame}
+  \frametitle{Einfache Zinsrechnung}
+  
+  Der einfache Zins $I$ kann mit der Formel $I = P \cdot r \cdot t$ berechnet werden, 
+  wobei $P$ den Anfangskapitalbetrag, $r$ den Zinssatz und $t$ die Laufzeit in Jahren darstellt.
+  
+  \vspace{0.5cm}
+  
+  \textbf{Beispiel}: Ein Betrag von $1000$ EUR wird zu einem Zinssatz von $5\%$ für $3$ Jahre angelegt. Wie hoch ist der einfache Zins?
+  
+  \vspace{0.3cm}
+  
+  Lösung: $I = 1000 \cdot 0.05 \cdot 3 = 150$ EUR.
+\end{frame}
+
+\subsection{Zinseszinsrechnung}
+\begin{frame}
+  \frametitle{Zinseszinsrechnung}
+  
+  Bei der \textbf{Zinseszinsrechnung} werden die Zinsen auf den Anfangskapitalbetrag sowie auf die bereits angefallenen Zinsen berechnet und addiert.
+  
+  \vspace{0.3cm}
+  
+  Die Formel für den Endbetrag $A$ unter Berücksichtigung von Zinseszinsen lautet: $$A = P \cdot (1 + r)^t$$ 
+  wobei $P$ den Anfangskapitalbetrag, $r$ den Zinssatz und $t$ die Laufzeit in Jahren darstellen.
+  
+  \vspace{0.5cm}
+  
+  \textbf{Beispiel}: Ein Betrag von $1000$ EUR wird zu einem jährlichen Zinssatz von $5\%$ für $3$ Jahre angelegt. Wie hoch ist der Endbetrag mit Zinseszinsen?
+  
+  \vspace{0.3cm}
+  
+  Lösung: $A = 1000 \cdot (1 + 0.05)^3 \approx 1157.63$ EUR.
+\end{frame}
+
+
+\subsection{Bundesschatzbrief}
+\begin{frame}
+  \frametitle{Bundesschatzbrief / interner Zins}
+
+  Angenommen, Sie haben einen Bundesschatzbrief mit einem Anfangskapital von $10,000$ EUR und folgenden jährlichen Zinssätzen:
+  \begin{center}
+    \begin{tabular}{|c|c|c|}
+      \hline
+      \textbf{Jahr} & \textbf{Zinssatz (\%)} & \textbf{Zinsbetrag (€)} \\
+      \hline
+      1 & 2 & 200\\
+      2 & 2.5 & 250 \\
+      3 & 3 & 300\\
+      4 & 3.5 & 350\\
+      5 & 4 & 400\\
+      \hline
+    \end{tabular}
+  \end{center}
+  Um den Gesamtzins (internen Zins) zu berechnen, müssen wir die Gleichung:
+  $$ A = P (1+r)^t$$
+  nach $r$ auflösen, mit $A=11.500$, $P=10.000$ und $t = 5$. Ergibt: 
+  $$r\approx 2,8\%$$
+\end{frame}
+
+\subsection{Barwertmethode}
+\begin{frame}
+  \frametitle{Barwertmethode}
+  Der Barwert $BW$ einer Investition wird berechnet, indem die zukünftigen Zahlungen abgezinst und auf den aktuellen Zeitpunkt diskontiert werden.
+  
+  \vspace{0.3cm}
+  
+  Die Formel für den Barwert lautet: $$BW = \sum_{t=1}^{n} \frac{Z_t}{(1+r)^t}$$ 
+  wobei $Z_t$ die Zahlung zum Zeitpunkt $t$, $r$ der Diskontierungssatz und $n$ die Laufzeit darstellen.
+  
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Barwertmethode}
+  
+  \textbf{Beispiel}: Eine Investition erfordert Zahlungen von $2,000$ EUR pro Jahr für die nächsten fünf Jahre. Der Diskontierungssatz beträgt $6\%$. Wie hoch ist der Barwert der Investition?
+  
+  \vspace{0.3cm}
+  
+  Lösung:
+  \begin{align*}
+    BW &= \sum_{t=1}^{n} \frac{Z_t}{(1+r)^t} = \sum_{t=1}^{5} \frac{2000}{(1+0,06)^t}\\
+    &= \frac{2,000}{1.06} + \frac{2,000}{1.06^2} + \frac{2,000}{1.06^3} + \frac{2,000}{1.06^4} + \frac{2,000}{1.06^5}\\  
+    &\approx 8,715.55 \text{ €.}  
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Barwertmethode}
+    Die Barwertmethode ermöglicht es verschiedene Zahlungsmodelle mit zukünftigen Zahlungen miteinander zu vergleichen.
+
+    \textbf{Beispiel}: Ein Unternehmen schafft fur die Produktion eine neue Fertigungsanlage an. Der
+    Lieferant bietet uns drei Zahlungsvarianten zur Auswahl:
+    \begin{itemize}
+        \item sofortige Bezahlung von 90.000 €
+        \item Bezahlung von 115.000 € in 5 Jahren
+        \item Bezahlung von 50.000 € in 3 Jahren und weiteren 60.000 € in 6 Jahren
+    \end{itemize}
+    Welche Zahlungsvariante sollte unter Kostenaspekten gewählt werden? (Lösung siehe Übungen)
+\end{frame}
+
+\subsection{Kreditarten}
+\begin{frame}
+  \frametitle{Kreditarten}
+  
+  Es gibt verschiedene Arten von Krediten, die von Banken und anderen Finanzinstituten angeboten werden. Einige gängige Kreditarten sind:
+  
+  \begin{itemize}
+    \item Annuitätendarlehen
+    \item Ratenkredite
+    \item Baufinanzierungen
+    \item Überziehungskredite
+    \item Hypothekendarlehen
+  \end{itemize}
+  
+  Jede Kreditart hat spezifische Merkmale, Zinssätze und Tilgungsmodalitäten, die bei der Auswahl eines Kredits berücksichtigt werden sollten.
+\end{frame}
+
+\subsection{Tilgungsrechnung bei Darlehen}
+\begin{frame}
+  \frametitle{Tilgungsrechnung bei Annuitätendarlehen}
+  
+  Annuitätendarlehen sind eine häufige Form von Krediten, bei denen der Kreditbetrag $K$ über einen festgelegten Zeitraum $n$ (in Jahren) in gleichbleibenden Raten $A$ (Annuitäten) zurückgezahlt wird.
+
+  \vspace{1cm}
+
+  Für die Restschuld $R_n$ nach $n$ Jahren gilt dann: 
+  $$R_n = K \cdot q^n - A \cdot \frac{1-q^n}{1-q}$$
+
+  mit $q=(1+r)$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tilgungsrechnung}  
+  Mithilfe der Formel für die Restschuld, können nun die verschiedenen Anwendungsfälle berechnet werden.
+
+  \vspace{1cm}
+  \textbf{Beispielfragen}:
+  \begin{itemize}
+    \item Wie hoch muss die Annuität $A$ sein, damit ein Kredit der Höhe $K$ bei einem Zins von $r$ nach $n$ Jahren abgezahlt ist?
+    \item Wie lange muss ein Kredit der Höhe $K$ mit einem Zins von $r$ und einer Annuität von $A$ abgezahlt werden?
+    \item Wie hoch kann der Kreditbetrag sein, wenn der Kredit mit Zins $r$ nach $n$ Jahren durch Annuitäten in Höhe $A$ abgezahlt sein soll?
+  \end{itemize}
+  Für die Beantwortung der Fragen muss die Formel für die Restschuld entsprechend umgestellt werden.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Tilgungsrechnung}  
+  \framesubtitle{Berechnungsformeln}
+  \begin{itemize}
+    \item Für die Annuität $A$ gilt: $$ A = K \cdot q^n \cdot \frac{1-q}{1-q^n}$$
+    \item Für den Kreditbetrag $K$ gilt: $$ K = A\cdot \frac{1-q^n}{(q^n-q^{n+1})}$$
+    \item Für die Laufzeit $n$ gilt: $$ n =     \frac{\ln(\frac{A}{1-q})-\ln(K+\frac{A}{1-q})}{\ln(q)}$$
+  \end{itemize}
+\end{frame}
+
+\subsection{Berechnung von Renten}
+\begin{frame}
+  \frametitle{Berechnung von Renten}
+  
+  Eine Rente ist eine regelmäßige Zahlung $R$ über einen bestimmten Zeitraum $n$ aus einem Anfangskapital $K$. Dabei wird davon ausgegangen, dass das Kapital am Jahresende mit $r$ verzinst wird und anschließend nachschüssig die Rentenzahlung entnommen wird.
+  
+  \vspace{0.5cm}
+
+  Für das verbleibende Kapital $K_n$ nach $n$ Zinsperioden ergibt sich:
+  $$R_n = K \cdot q^n - R \cdot \frac{1-q^n}{1-q}$$
+  Soll das Kapital $K$ nach $n$ Rentenzahlungen aufgebraucht sein, so gilt fur den
+Rentenbetrag $R$, welcher aus einem Anfangskapital $K$ genau $n$-mal nachschussig
+gezahlt werden kann:
+$$R = K \cdot q^n \cdot \frac{1-q}{1-q^n}$$ 
+
+$q=(1+r)$
+  
+\end{frame}
+
+\end{document}
