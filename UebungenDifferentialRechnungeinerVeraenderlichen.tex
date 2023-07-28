@@ -1,0 +1,131 @@
+\documentclass[fontsize=11pt, parskip=half]{scrartcl}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\parindent}{0em}
+
+% set section in CM
+\setkomafont{section}{\normalfont\bfseries\Large}
+\makeatletter
+\renewcommand\sectionlinesformat[4]{%
+  \Ifstr{#1}{section}
+    {\@hangfrom{\hskip #2}{#4#3}}
+    {\@hangfrom{\hskip #2#3}{#4}}% original definition for subsection, subsubsection
+}
+\makeatother
+\renewcommand\sectionformat{\enskip\thesection\autodot}
+
+%own commands
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\d}{\operatorname{d}}
+
+\renewcommand{\vec}[1]{\boldsymbol #1}
+
+\begin{document}
+
+%% Headline
+\noindent
+\begin{tabular}{l}
+    \textbf{Analysis und Lineare Algebra} \\    
+    Prof. Dr. Jonas Offtermatt
+\end{tabular}
+\hfill \includegraphics[width=2cm]{DHBW.pdf}\\
+\rule{\textwidth}{0.5pt}
+
+%%
+
+%% Title
+\begin{center}
+    \Large
+    \textbf{Übungsblatt 3 Differentialrechnung einer Veränderlichen}
+\end{center}
+%%
+
+\section{Aufgabe}
+
+Berechnen Sie die erste Ableitung der folgenden Funktionen: \\
+\begin{tabular}{lll}
+a) $\displaystyle{ f(x)=x^3(x^3-4x)}$ & b) $\displaystyle{
+f(x)=\frac{13}{x^4}}$ & c) $\displaystyle{ f(x)=\sqrt[4]{x^3}}$ \\
+d) $\displaystyle{ f(x)=(x^3+x)^{25}}$ & e) $\displaystyle{
+f(x)=\frac{x^3+1}{(x^2-1)^2}}$ & f) $\displaystyle{ f(x)=\sqrt{x}
+\cdot \ln x}$ \\ g) $\displaystyle{ f(x)=\frac{2x+3}{e^x x^3}}$ & h)
+$\displaystyle{ f(x)=(ax)^x}$ & i) $\displaystyle{ f(x)=e^{x^3}\cdot
+\ln x^2}$
+\end{tabular}
+
+
+
+\section{Aufgabe}%
+Untersuchen Sie die Funktion $f(x)$ auf Stetigkeit und
+Differenzierbarkeit.
+\[ f(x)=\left\{ \begin{array}{ll}
+\displaystyle{\frac{x^2}{2|x|}} & ,\hspace{0.1cm} x \not= 0 \\
+0 & ,\hspace{0.1cm} x=0
+\end{array} \right. \]
+
+
+%\medskip
+%
+%\section{Aufgabe}%
+%Bestimmen Sie Definitionsbereich, Nullstellen, lokale Extrema,
+%Wendepunkte und Asymptoten von $f$:
+%\[f(x)=\frac{2x^2-2x-4}{x-4}\]
+%
+%
+
+
+\section{Aufgabe}%
+
+Ein Unternehmen produziere ein Gut gemä{\ss} folgender
+Produktionsfunktion:
+\[x(r)=-r^3+12r^2+60r\\
+(x: \mbox{Ertrag, Output } [ME_x]; r: \mbox{Input } [ME_r]).\]
+
+Bestimmen Sie die Nullstellen, die Extremwerte und die Wendepunkte
+und interpretieren Sie diese inhaltlich.
+
+
+
+\section{Aufgabe}Gegeben ist die Funktion $f:\ \R \rightarrow \R$ mit den
+Parametern $a, c \in \R$:
+
+$$ f(x)=\left\{\begin{array}{ll} \frac{2}{3}x \quad & x\leq 3 \\[0.3cm]
+           (x-a)^{\frac{1}{2}}+ c \quad & x > 3 \end{array}\right.$$
+
+\begin{enumerate}
+\item Skizzieren Sie den Verlauf der Funktion im Bereich $0 \leq x \leq 6 $ für den Fall $a = 2$ und $c = \frac{3}{2}$.
+\item Bestimmen Sie alle Werte der Parameter $a$ und $c$, so dass die
+Funktion $f$ an der Stelle $x_0=3$ stetig ist.
+\item Bestimmen Sie alle Werte der Parameter $a$ und $c$, so dass die
+Funktion $f$ an der Stelle $x_0=3$ differenzierbar ist.
+\end{enumerate}
+
+
+
+\section{Aufgabe}Gegeben sind eine Erlösfunktion $\displaystyle E(x)=x^4+2x^2$
+sowie eine Kostenfunktion $\displaystyle K(x)=e^{\sqrt{x}}$ in
+Abhängigkeit von einer Menge $x$.
+
+
+\begin{enumerate}
+ \item Wie lautet die Gewinnfunktion $\displaystyle G(x)$?
+ \item Ermitteln Sie für die Gewinnfunktion die erste Ableitung $\displaystyle G'(x)$.
+ \item Ermitteln Sie für die Gewinnfunktion die zweite Ableitung $\displaystyle G''(x)$.
+ \item Gesucht ist das Gewinnmaximum und es ist bekannt, dass es in der Nähe von $x=600$ liegen muss. Verwenden Sie Ihre Ergebnisse
+ aus b) und c), um mit Hilfe des Newton-Verfahrens das Maximum der
+ Gewinnfunktion anzunähern.\\
+ \emph{Hinweis: Es sind zwei Iterationen durchzuführen.}\\
+\end{enumerate}
+
+\end{document}

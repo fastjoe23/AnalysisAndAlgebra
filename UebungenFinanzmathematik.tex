@@ -1,0 +1,195 @@
+\documentclass[fontsize=11pt, parskip=half]{scrartcl}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\parindent}{0em}
+
+% set section in CM
+\setkomafont{section}{\normalfont\bfseries\Large}
+\makeatletter
+\renewcommand\sectionlinesformat[4]{%
+  \Ifstr{#1}{section}
+    {\@hangfrom{\hskip #2}{#4#3}}
+    {\@hangfrom{\hskip #2#3}{#4}}% original definition for subsection, subsubsection
+}
+\makeatother
+\renewcommand\sectionformat{\enskip\thesection\autodot}
+
+%own commands
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\d}{\operatorname{d}}
+
+\renewcommand{\vec}[1]{\boldsymbol #1}
+
+\begin{document}
+
+%% Headline
+\noindent
+\begin{tabular}{l}
+    \textbf{Analysis und Lineare Algebra} \\    
+    Prof. Dr. Jonas Offtermatt
+\end{tabular}
+\hfill \includegraphics[width=2cm]{DHBW.pdf}\\
+\rule{\textwidth}{0.5pt}
+
+%%
+
+%% Title
+\begin{center}
+    \Large
+    \textbf{Übungsblatt 2 Finanzmathematik}
+\end{center}
+%%
+
+\section{Aufgabe}
+\begin{enumerate}
+    \item Ein Kapital von 2.000 € wird zu einem Jahreszins von $4
+    \,\%$ angelegt. Die Zinsen werden jährlich gutgeschrieben und fortan
+    ebenfalls verzinst. Auf welchen Betrag ist es nach 10 Jahren
+    angewachsen?
+    \item Welches Kapital muss bei einem Jahreszins von $3,5 \,\%$
+    angelegt werden, wenn man nach 5 Jahren (inkl. Zinseszins) einen
+    Betrag von 5.000 € zur Verf"ugung haben m"ochte? \item Nach
+    welcher Zeit $t$ verdoppelt sich das Kapital von 1.000 € bei
+    einem Zinssatz von $3\,\%$ pro Jahr?
+    \end{enumerate}
+    
+
+    
+    \section{Aufgabe} 
+    Ein Kapital von 11.000 € wird jährlich mit $10\,\%$
+    verzinst. Welchen Betrag $A$ darf man am Ende des ersten Jahres
+    abheben, damit am Ende des zweiten Jahres wieder 11.000 € auf
+    dem Konto sind?
+    
+
+    
+    \section{Aufgabe}
+    \begin{enumerate}
+    \item Ein Kapital von 1.000 € werde 10 Jahre lang zu einem
+    nominellen Zinssatz von $6 \,\%$ mit Zinseszins angelegt.
+     Wie hoch ist der Kontostand nach 10 Jahren bei \vspace{-0.2cm}
+    \begin{itemize}
+    \item j"ahrlicher Zinszahlung? \item halbj"ahriger Zinszahlung?
+    \item monatlicher Zinszahlung?
+    \end{itemize}\vspace{-0.2cm}
+    \item Wie hoch ist in a) jeweils der effektive Jahreszinssatz
+    $p_{eff}$? \item Welchen Monatszinssatz $p_M$ muss eine Bank
+    angeben, wenn ein effektiver Jahreszinssatz von $p_{eff}=5$\,\%
+    erreicht werden soll?
+    \end{enumerate}
+    
+
+    
+    \section{Aufgabe}
+     Ein Kapital $K$ werde 5 Jahre lang bei einer Verzinsung zu $1
+    \,\%$ je Vierteljahr, weitere 7 Jahre bei j"ahrlicher Verzinsung zu
+    $3 \,\%$ und weitere 3 Jahre bei j"ahrlicher Verzinsung zu $4 \,\%$
+    verzinst (jeweils mit Zinseszins). Welcher gleichbleibende
+    Jahreszinssatz $p$ ergibt das gleiche Endkapital bei stetiger
+    Verzinsung?
+    
+  
+    
+    \section{Aufgabe} 
+    \begin{enumerate} 
+        \item Herr Müller
+    schlie{\ss}t einen Bausparvertrag über 100.000 € ab und möchte
+    zum Ende eines jeden Jahres den gleichen Betrag $E$ einzahlen. Nach
+    6 Jahren möchte er $40\,\%$ der Vertragssumme angespart haben. Die
+    Verzinsung betrage $3\,\%$ pro Jahr. Berechnen Sie $E$! \item
+    Berechnen Sie den Betrag $E$, falls die Einzahlungen vorschüssig,
+    d.h. zu Beginn eines jeden Jahres stattfinden.
+    \end{enumerate}
+    
+  
+    
+    
+    \section{Aufgabe} 
+    Ein Unternehmen steht vor der Entscheidung, welches von drei
+    Produkten A, B oder C hergestellt werden soll. Für die Herstellung
+    von Produkt A ist die Anschaffung einer Maschine $M_A$, für Produkt
+    B einer Maschine $M_B$ und für Produkt C einer Maschine $M_C$
+    notwendig. Eine Maschine kostet in der Anschaffung jeweils 70.000
+    €. Die erforderlichen liquiden Mittel zur Anschaffung einer
+    Maschine stehen dem Unternehmen zur Verfügung. Mit der Anschaffung
+    der Maschine $M_A$, $M_B$ bzw. $M_C$ und dem Verkauf der Produkte
+    sind am Ende eines Jahres folgende Einzahlungsüberschüsse verbunden:
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|}  \hline
+       & \multicolumn{5}{|c|}{Ende des Jahres} \\
+      & 1 & 2 & 3 & 4 & 5\\\hline
+      $A$ & 30.000  & 27.000  & 25.000  & -       &  -  \\
+      $B$ & 27.000  & 23.000  & 19.000  & 15.000  &  -   \\
+      $C$ & 17.000  & 17.000  & 17.000  & 17.000  &  17.000   \\  \hline
+    \end{tabular}
+    \end{center}
+    
+    \begin{enumerate}
+    \item Für welches Produkt soll sich das Unternehmen entscheiden, wenn die
+    Einzahlungsüberschüsse auf einem Konto zu einem Zinssatz von 4\,\%
+    angelegt werden?
+    \item Wie lautet Ihre Empfehlung, wenn für die Anschaffung einer Maschine jeweils 80.000
+    € zu berücksichtigen sind?
+    \end{enumerate}
+    
+
+    
+    \section{Aufgabe}
+     Bei einem jährlichen Zinssatz von $6\,\%$ soll eine
+    Grundschuld von 50.000 € durch zehn nachsch"ussige
+    Jahresannuit"aten vollst"andig getilgt werden.
+    \begin{enumerate}
+    \item Bestimmen Sie die Jahresannuit"at. \item Wie gro"s ist bei
+    dieser Jahresannuit"at die Restschuld nach f"unf Jahren?
+    \end{enumerate}
+
+
+    
+    \section{Aufgabe}
+    Herrn Schulze stehen $K_0 = 10.000$ € Kapital zur
+    Verfügung. Er möchte dieses Kapital für 10 Jahre anlegen und bekommt
+    hierfür zunächst zwei Anlagemöglichkeiten \textbf{A} und \textbf{B}
+    vorgelegt:
+    \begin{itemize}
+    \item[\textbf{A}:] Unterjährige Verzinsung mit Zinseszins: Es wird monatlich der Zinssatz $p_u=0,25$\,\% gewährt. Dies gilt für die komplette Laufzeit von 10 Jahren.
+    \item[\textbf{B}:] Zuwachssparen mit jährlicher Verzinsung: In den
+    Jahren 1 bis 3 wird jährlich ein Zinssatz von 2\,\% gewährt, in den
+    Jahren 4 bis 6 sind es jährlich 3\,\% und in den Jahren 7 bis 10
+    schlie{\ss}lich 3,75\,\% pro Jahr.
+    \end{itemize}
+    
+    \begin{enumerate}
+    \item Welche Variante führt nach Ablauf der 10 Jahre zu einem höheren Gesamtkapital $K_{10}$?
+    \item Welcher gleichbleibende jährliche Zinssatz müsste gewährt werden, dass nach 10 Jahren dasselbe Kapital angespart wäre wie bei Anlage \textbf{A}?
+    \item Wie müsste bei stetiger Verzinsung der Zinssatz gewahlt werden, um zu einer identischen Kapitalhöhe $K_{10}$ zu kommen wie bei Anlage \textbf{A}?
+    \item Weshalb muss der Wert für den gesuchten Zinssatz in b) über dem Wert des Zinssatzes aus c) liegen? Begründen Sie stichhaltig.\\
+    \end{enumerate}
+    
+
+    
+    \section{Aufgabe}
+    Herr Maier möchte seiner Tochter ein Studium an einer teuren
+    Privatuniversität im Ausland ermöglichen. Hierfür muss er 100.000
+   € aufbringen. Seine Bank bietet ihm einen Kredit über diesen
+    Betrag mit einem Jahreszinssatz von 4\% an. Jeweils zum Jahresende
+    werde die Annuität (Zinsen plus Tilgung) von 10.000€ gezahlt.
+    \begin{enumerate}
+    \item Welche Restschuld besteht nach 10 Jahren? %
+    \item Bei welcher Annuität würde die Schuld in genau 10 Jahren
+    getilgt werden?
+    \item Wie lange dauert es, bis die Schuld bei einer Annuität von 10.000 € vollständig getilgt
+    ist?
+    \end{enumerate}
+    
+\end{document}

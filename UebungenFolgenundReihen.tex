@@ -1,0 +1,176 @@
+\documentclass[fontsize=11pt, parskip=half]{scrartcl}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\parindent}{0em}
+
+% set section in CM
+\setkomafont{section}{\normalfont\bfseries\Large}
+\makeatletter
+\renewcommand\sectionlinesformat[4]{%
+  \Ifstr{#1}{section}
+    {\@hangfrom{\hskip #2}{#4#3}}
+    {\@hangfrom{\hskip #2#3}{#4}}% original definition for subsection, subsubsection
+}
+\makeatother
+\renewcommand\sectionformat{\enskip\thesection\autodot}
+
+%own commands
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\d}{\operatorname{d}}
+
+\renewcommand{\vec}[1]{\boldsymbol #1}
+
+\begin{document}
+
+%% Headline
+\noindent
+\begin{tabular}{l}
+    \textbf{Analysis und Lineare Algebra} \\    
+    Prof. Dr. Jonas Offtermatt
+\end{tabular}
+\hfill \includegraphics[width=2cm]{DHBW.pdf}\\
+\rule{\textwidth}{0.5pt}
+
+%%
+
+%% Title
+\begin{center}
+    \Large
+    \textbf{Übungsblatt 1 Folgen und Reihen}
+\end{center}
+%%
+
+\section{Aufgabe}
+\begin{enumerate}[label=\alph*)]
+    \item Ein Sparer legt sich einen Sparplan zurecht. Seine erste Einzahlung auf
+    einem Konto beträgt 500 €. Jeden weiteren Monat zahlt er 5 € mehr
+    ein als im Vormonat. Berechnen Sie den Betrag B der 120. Einzahlung
+    und die Summe S aller Einzahlungen (ohne irgendwelche Zinsen) von
+    der ersten bis zur 120. Einzahlung.
+    \item in Versicherungsnehmer bezahlt bei Vertragsabschluss 1.000 € Prämie.
+    Jedes weitere Jahr bezahlt er 8 € weniger. Berechnen Sie die Summe
+    S der ersten 20 Zahlungen.
+\end{enumerate}
+
+
+\section{Aufgabe}
+Nach seinem Eintritt in das Berufsleben beschließt Herr
+E.X. Studierender von seinem Monatsgehalt jeweils einen kleinen Teil
+zur Seite zu legen, um sich in Zukunft ein neues Auto leisten zu
+können. Er legt im ersten Monat 200 € zur Seite
+und erhöht diesen Betrag jeden weiteren Monat um 2,5\,$\%$ gegenüber dem Vormonat.\\[-0.7cm]
+
+\begin{enumerate}
+\item Nach drei Jahren möchte er einen Zwischenstand über seine
+Ersparnisse erstellen. Wie hoch sind diese und wie hoch ist der
+Betrag, den er zuletzt zur Seite gelegt hat?\\[-0.7cm]
+\item Seinen Recherchen zufolge benötigt er für den Neuwagenkauf 20.000 €. Im wie vielten Monat
+muss er das letzte Mal Geld für das Auto zur Seite legen? Wie hoch muss diese letzte Ansparung ausfallen, um auf exakt 20.000 € zu kommen?\\[-0.7cm]
+\end{enumerate}
+
+\emph{Hinweis: Verwenden Sie bei den Berechnungen die entsprechende
+Formel für die Reihe.}
+
+\section{Aufgabe}
+Untersuchen Sie die angegebenen Folgen auf Konvergenz und
+geben Sie, falls existent, den jeweiligen Grenzwert an.\\
+
+\begin{tabular}{lll}
+a) $\displaystyle{a_n = \frac{n^3 +1}{2n^2}}$ & b) $\displaystyle{a_n = \frac{n^2 +1}{2n^2}}$ & c) $\displaystyle{a_n = \frac{2^n +3}{4^n}}$
+\\[0.5cm]
+\multicolumn{2}{l}{d) $\displaystyle{a_n = \sqrt{4n^2+14n+5} -2n}$}
+& e) $\displaystyle{a_n = \frac{(-1)^n}{1+n}}$
+
+\end{tabular}
+
+\section{Aufgabe}
+Berechnen Sie den Wert der folgenden Summen:\\
+
+\begin{tabular}{lll}
+a) $\displaystyle{ \sum_{k=0}^{\infty}\frac{1}{2^{k}}}$ & b)
+$\displaystyle{ \sum_{k=1}^{\infty}\frac{1}{2^{k}}}$ & c)
+$\displaystyle{ \sum_{n=3}^{\infty}\frac{4^n}{6^{n+2}}}$
+\end{tabular}
+
+\section{Aufgabe}
+Eine kleine Brauerei hat sich zum Ziel gesetzt,
+insgesamt 5.000 Liter einer neuen Biersorte herzustellen und
+abzusetzen. Hierzu werden monatlich Teilmengen gebraut und verkauft.
+Aufgrund des erwarteten zunehmenden Bekanntheitsgrades soll jeden
+Monat $10 \,\%$ mehr als im Vormonat hergestellt werden. Im ersten
+Monat werden 100 Liter der neuen Biersorte gebraut.
+
+\begin{enumerate}[label=\alph*)]
+ \item Welche Menge wird im 10. Monat hergestellt?
+ \item Wie viele Liter Bier der neuen Sorte werden im ersten Jahr gebraut?
+ \item In welchem Monat erreicht die Brauerei ihr Produktionsziel?
+ \end{enumerate}
+
+\section{Aufgabe}
+Zeigen Sie unter Verwendung des Zusammenhangs
+
+$$ s_n =  \displaystyle \sum_{k=1}^n a_k = n \cdot \frac{a_1 +a_n}{2}, n \in \N,$$
+
+dass im Falle $n \in \N_0$ für die Teilsumme $(s_n)$ einer
+arithmetischen Reihe gilt:
+
+$$ s_n =  \displaystyle \sum_{k=0}^n a_k = (n+1) \cdot \frac{a_0 +
+a_n}{2}
+$$
+
+\section{Aufgabe}
+Zeigen Sie unter Verwendung des Zusammenhangs
+
+$$ s_n =  \displaystyle \sum_{k=1}^n a_k = a_1 \cdot \frac{1 -
+q^n}{1-q}, n \in \N,
+$$
+
+dass im Falle $n \in \N_0$ für die Teilsumme $(s_n)$ einer
+geometrischen Reihe gilt:
+
+$$ s_n =  \displaystyle \sum_{k=0}^n a_k = a_0 \cdot \frac{1 -
+q^{n+1}}{1-q}
+$$
+
+\section{Aufgabe}
+Sie sind an der Planung der Bestuhlung für einen neuen
+Theatersaal beteiligt. Es ist zunächst vorgesehen, dass die
+vorderste Zuschauerreihe aus 15 Plätzen besteht. In jeder weiteren
+Reihe erhöht sich die Anzahl um 4 Plätze je Reihe, sodass in der 2.
+Reihe 19 Plätze und in der 3. Reihe 23 Plätze entstehen. Der Theatersaal soll am Ende für 2.000 Gäste Platz bieten.\\[-0.5cm]
+
+\begin{enumerate}[label=\alph*)]
+\item Welche Anzahl an Plätzen weist die 25. Reihe des Theatersaals auf? 
+\item Wie viele Plätze hat der Theatersaal insgesamt, wenn Sie genau 25 Reihen im Gebäude
+unterbringen?
+\item Wie muss die Anzahl der Plätze in der ersten Reihe verändert werden,
+wenn Sie mit 25 Reihen und einer Erhöhung um 4 Plätze
+je Reihe die Vorgabe von 2.000 Plätzen erfüllen möchten?
+\item Wie muss der Wert gewählt werden, um den sich die Platzanzahl je Reihe erhöht, wenn es stattdessen bei 15 Plätzen in der ersten Reihe bleibt und
+nicht mehr als 25 Reihen möglich sind?
+\end{enumerate}
+
+\section{Aufgabe}
+Gegeben ist die Zahlenfolge $$a_n = \frac{4}{5^{n}}, n \in
+\N.$$
+
+\begin{enumerate}
+\item Welche Werte nehmen das zweite und das dritte Folgenglied an?
+\item Zeigen Sie, dass es sich bei $a_n$ um eine geometrische Folge handelt.
+\item Aus der Zahlenfolge $a_n$ lässt sich die zugehörige $n$-te Teilsumme $$ s_n = \sum_{k=1}^{n} a_k $$ bilden. Welchen Wert nimmt diese Summe für $n=5$ an?
+\item Zeigen Sie allgemein, dass für die Reihe $s = \lim_{n \rightarrow \infty}s_n$ gilt:
+$$ s = \sum_{k=1}^{\infty} \frac{4}{5^{k-1}} = \frac{4}{5^0} + \frac{4}{5^1} + \frac{4}{5^2} + \ldots = 5 $$ \\[-0.5cm]
+\end{enumerate}
+
+\end{document}

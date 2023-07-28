@@ -1,0 +1,188 @@
+\documentclass[fontsize=11pt, parskip=half]{scrartcl}
+
+\usepackage{ngerman}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\parindent}{0em}
+
+% set section in CM
+\setkomafont{section}{\normalfont\bfseries\Large}
+\makeatletter
+\renewcommand\sectionlinesformat[4]{%
+  \Ifstr{#1}{section}
+    {\@hangfrom{\hskip #2}{#4#3}}
+    {\@hangfrom{\hskip #2#3}{#4}}% original definition for subsection, subsubsection
+}
+\makeatother
+\renewcommand\sectionformat{\enskip\thesection\autodot}
+
+%own commands
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand{\d}{\operatorname{d}}
+\newcommand{\three}[3]{\left(\begin{array}{c}#1\\#2\\#3\end{array}\right)}
+\newcommand{\four}[4]{\left(\begin{array}{c}#1\\#2\\#3\\#4\end{array}\right)}
+
+\renewcommand{\vec}[1]{\boldsymbol #1}
+
+\begin{document}
+
+%% Headline
+\noindent
+\begin{tabular}{l}
+    \textbf{Analysis und Lineare Algebra} \\    
+    Prof. Dr. Jonas Offtermatt
+\end{tabular}
+\hfill \includegraphics[width=2cm]{DHBW.pdf}\\
+\rule{\textwidth}{0.5pt}
+
+%%
+
+%% Title
+\begin{center}
+    \Large
+    \textbf{Übungsblatt 5 Matrizen und lineare Gleichungssysteme}
+\end{center}
+%%
+
+\section{Aufgabe} Geben Sie für die folgenden Gleichungssysteme $A \vec{x}=\vec{b}$ jeweils $rg(A)$ und $rg(A,\vec{b})$ an. Was bedeutet dies für die jeweilige Anzahl an Lösungen? \\[0.2cm]
+\begin{tabular}{llll}
+a) & $\begin{array}{rcrcr}
+    9x &- &5y &=&19 \\
+     x &- &y  &=&3\\
+    \end{array}$   &
+b) & $\begin{array}{rcrcr}
+    13x &- & 11y &=& -11 \\
+    65x &- & 55y &=& -55\\
+    \end{array}$   \\[0.8cm]
+c) &  $\begin{array}{rcrcr}
+    7x &- & y &=& 12 \\
+    14x &- & 2y &=& 20\\
+    \end{array}$ & &
+\end{tabular}
+
+
+
+\section{Aufgabe} F"ur welche $a,b \in \R$ ist folgendes lineares
+Gleichungssystem l"osbar? Geben Sie jeweils die L"osungsmenge an.
+\[\begin{array}{rcrcrcr}
+ x_1 &- &2 x_2 &+ & 3x_3 &= &5 \\
+2x_1 &+ &x_2 &+ &4x_3 &= &3 \\
+4x_1 &- &3x_2 &+ &ax_3 &= &13 \\
+x_1 &+ &3x_2 &+ & x_3  &= &b.  \end{array}
+\]
+
+
+
+
+\section{Aufgabe} Berechnen Sie die Inverse der Matrix $A$ und l"osen Sie damit
+das Gleichungssystem $A \vec{x}=\vec{b}$ für jeden Vektor $b_i$
+einmal.
+\[A= \left( \begin{array}{rrr} 1 & 3 & 1 \\
+-1 & 0 & 2 \\ 1 & -1 & 1 \end{array} \right) \hspace{10mm}
+\vec{b_1}=\three{1}{1}{1}, \ \vec{b_2}=\three{12}{0}{4}, \
+\vec{b_3}=\three{0}{3}{4} \]
+
+
+
+
+\section{Aufgabe} F"ur welche $a \in \R$ ist
+\[ A= \left( \begin{array}{rrr} 1 & 0 & 1 \\
+0 & 1 & 1 \\ 1 & 1 & a \end{array} \right) \] invertierbar?
+Berechnen Sie gegebenenfalls die Inverse.
+
+
+
+
+%
+
+\section{Aufgabe}
+\begin{enumerate}
+\item [a)] Berechnen Sie im Falle der Existenz die Inverse $A^{-1}$ der Matrix
+$$A=
+\left(\begin{array}{cc}5& 10 \\20 & 30\\ \end{array}\right).
+$$
+\item [b)] Gegeben ist folgende erweiterte Matrix $(A,\vec{b})$:
+$$
+\left(\begin{array}{cccc|c}4& 1& 0& 0& 10\\0& 3& 0& 0& 6\\0& 0& 2& 0& 2s\\0& 0& 0& 4t& 0\\
+\end{array}\right).
+$$
+Für welche Werte der Parameter $s,t \in \R$ ist das lineare
+Gleichungssystem $A\cdot \vec{x}=\vec{b}$ lösbar? Geben Sie die
+Lösungsmenge an.
+\end{enumerate}
+
+
+
+
+
+
+
+\section{Aufgabe}Gegeben sei die Matrix $
+ A= \left( \begin{array}{cccc}  1 & 0 & 4 & 8 \\
+                                0 & 4 & 0 & 2 \\
+                                2 & 0 & 2 & 1 \\
+                                0 & 1 & 0 & 0 \\ \end{array}\right)
+$\\[0.3cm]
+sowie die Vektoren $\vec{b_1}=\four{2}{2}{1}{1}$ und $\vec{b_2}=\four{1}{-2}{-1}{1}$.\\
+
+\begin{enumerate}
+\item[a)] Zeigen Sie, dass die Ermittlung der Inversen von $A$ zur Matrix $A^{-1}$ führt, für welche gilt:\\[0.3cm]
+$
+ A^{-1}= \left( \begin{array}{cccc}  -\frac{1}{3} & 1 & \frac{2}{3} & -4 \\[0.1cm]
+                                     0 & 0 & 0 & 1 \\[0.1cm]
+                                     \frac{1}{3} & -\frac{5}{4} & -\frac{1}{6} & 5 \\[0.1cm]
+                                     0 & \frac{1}{2} & 0 & -2 \\ \end{array}\right)
+$\\
+
+\item[b)] Ermitteln Sie für die beiden Vektoren $\vec{b_1}$ und $\vec{b_2}$ jeweils die Lösung $\vec{x}$ für das Gleichungssystem $A \cdot \vec{x} = \vec{b}$.
+\end{enumerate}
+
+
+%
+
+\section{Aufgabe}Ein Unternehmen stellt in den drei Abteilungen "`Reparatur"',
+"`Stromerzeugung"' und "`Wasserversorgung"' innerbetriebliche
+Leistungen für das gesamte Unternehmen zur Verfügung.
+
+So hat das Unternehmen z.\,B. insgesamt 200\,m$^3$ Wasser
+verbraucht, davon 4\,m$^3$ in der Abteilung Reparatur und 80\,m$^3$
+in der Abteilung Strom. Für die Bereitstellung der 200\,m$^3$ Wasser
+sind in der Abteilung 280\,€ an Kosten angefallen. Zusätzlich
+sind in dieser Abteilung die Kosten für 6 Reparaturstunden sowie die
+Kosten für 100\,kWh Strom zu berücksichtigen.
+
+Nachfolgende Tabelle fasst die entsprechenden Informationen für alle
+Abteilungen zusammen:\vspace{-0.5cm}
+
+\begin{center}
+\begin{tabular}{|l|c|c|ccc|}   \hline
+                                     &      Abteilungs-         &   Gesamt-         & \multicolumn{3}{c|}{Leistungsempfänger}                    \\
+ Leistungsgeber                      &      kosten  &               verbrauch       &   "`Wasser"'     &"`Reparatur"'  &"`Strom"'     \\[0.1cm] \hline
+ &&&&&\\[-0.4cm]
+  "`Wasser"'                         &      280\,€        &   200\,m$^3$      &       0\,m$^3$           & 4\,m$^3$         & 80\,m$^3$          \\
+  "`Reparatur"'                      &      792\,€        &   20\,h           &       6\,h               & 8\,h             & 4,8\,h          \\
+  "`Strom"'                          &      304\,€        &   960\,kWh        &       100\,kWh           & 32\,kWh          & 0\,kWh           \\    \hline
+\end{tabular}
+\end{center}
+
+Das Unternehmen möchte die innerbetrieblichen Leistungen der drei
+Abteilungen verursachungsgerecht mit Verrechnungspreisen bewerten.
+Es wird folglich nach je einem Verrechnungspreis für einen
+Kubikmeter Wasser, für eine Reparaturstunde und für eine
+Kilowattstunde Strom gesucht.
+
+Formulieren und lösen Sie ein lineares Gleichungssystem zur
+Bestimmung von leistungsgerechten Verrechnungspreisen für die drei
+Abteilungen.
+
+
+\end{document}
