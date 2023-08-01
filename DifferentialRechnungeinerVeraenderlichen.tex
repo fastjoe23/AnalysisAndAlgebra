@@ -12,6 +12,8 @@
 
 \begin{document}
 
+\section{Differentialrechnung einer Veränderlichen}
+\subsection{Funktionen und ihre Eigenschaften}
 
 \begin{frame}
   \frametitle{Funktionen und ihre Eigenschaften}
@@ -124,7 +126,7 @@
     \end{itemize}
 \end{frame}
 
-
+\subsection{Grenzwerte und Stetigkeit}
 \begin{frame}
   \frametitle{Funktionen und ihre Eigenschaften}
   \framesubtitle{Grenzwerte und Stetigkeit}
@@ -134,10 +136,88 @@
     Schreibweise: $$\lim_{x \to a} f(x) = L$$
     \item \textbf{Stetigkeit} einer Funktion:
       \begin{itemize}
-        \item Eine Funktion $f(x)$ heißt \textbf{stetig} an der Stelle $a$, wenn gilt $$\lim_{x \to a} f(x) = f (\lim_{x \to a}) = f(a) $$  und $f(a)$ definiert ist.
+        \item Eine Funktion $f(x)$ heißt \textbf{stetig} an der Stelle $a$, wenn gilt $$\lim_{x \to a} f(x) = f (\lim_{x \to a} x) = f(a) $$  und $f(a)$ definiert ist.
         \item Eine Funktion ist \textbf{stetig auf einem Intervall}, wenn sie an jeder Stelle in diesem Intervall stetig ist.
       \end{itemize}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiele für Funktionen und ihre Grenzwerte}
+  \begin{columns}[c]
+    \column{0.4\textwidth}
+   
+    \begin{tikzpicture}[scale=0.6]
+      % Funktion 1: f(x) = x^2
+      \draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+      \draw[->] (0,-0.5) -- (0,4) node[above] {$f(x)=x^2$};
+      \draw[domain=-2:2,smooth,variable=\x,blue] plot ({\x},{\x*\x});
+      %\draw[dashed] (-2,4) node[left] {$f(x) = x^2$};
+      \draw[dotted] (1.5,2.25) -- (1.5,0) node[below] {$a$};
+    \end{tikzpicture}
+
+    \vspace{1em}
+
+    Grenzwert: $\lim\limits_{x \to a} f(x) = a^2$
+    
+    \column{0.4\textwidth}
+   
+    \begin{tikzpicture}[scale=0.6]
+      % Funktion 2: g(x) = sin(x)
+      \draw[->] (-1*pi,0) -- (1*pi,0) node[right] {$x$};
+      \draw[->] (0,-1.5) -- (0,1.5) node[above] {$g(x)= \sin(x)$};
+      \draw[domain=-1*pi:1*pi,smooth,variable=\x,red] plot ({\x},{sin(\x r)});
+      
+      \draw[dotted] (pi/2,1) -- (pi/2,0) node[below] {$a$};
+    \end{tikzpicture}
+
+    \vspace{1em}
+
+    Grenzwert: $\lim\limits_{x \to a} g(x) = \sin(a)$
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Beispiele für Funktionen und ihre Grenzwerte}
+  \begin{columns}[c]
+    \column{0.5\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.6]
+      % Funktion 1: h(x) = 1/x
+      \draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+      \draw[->] (0,-3) -- (0,3) node[above] {$h(x)=\frac{1}{x}$};
+      \draw[domain=-2:-0.3,smooth,variable=\x,blue] plot ({\x},{1/\x});
+      \draw[domain=0.3:2,smooth,variable=\x,blue] plot ({\x},{1/\x});
+      %\draw[dashed] (2,-1/2) node[right] {$h(x) = \frac{1}{x}$};
+      \draw[dotted] (1,0) -- (1,-3) node[below] {$a$};
+    \end{tikzpicture}
+
+    \vspace{1em}
+
+    Grenzwert:
+    
+    $\lim\limits_{x \to 0} h(x) = \pm \infty$
+
+    $\lim\limits_{x \to \pm \infty} h(x) = 0$
+    
+    \column{0.5\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=0.6]
+      % Funktion 2: f(x) = {x, x -1 <0, 1, x>=0}
+      \draw[->] (-1.7,0) -- (2.5,0) node[right] {$x$};
+      \draw[->] (0,-1.7) -- (0,2) node[above] {$f(x)\begin{cases} x - 1, & x < a \\ 1, & x \geq a \end{cases}$};
+      \draw[domain=-1.3:1,smooth,variable=\x,red] plot ({\x},{\x -1});
+      \draw[domain=1:2.5,smooth,variable=\x,red] plot ({\x},{1});
+      %\draw[dashed] (2,1) node[right] {$f(x) = \begin{cases} x, & x < 0 \\ 1, & x \geq 0 \end{cases}$};
+      \draw[dotted] (1,1) -- (1,0) node[below] {$a$};
+    \end{tikzpicture}
+
+    \vspace{1em}
+
+    Grenzwert: 
+    
+    $\lim\limits_{x \to a^-} f(x) = 0$, 
+    
+    $\lim\limits_{x \to a^+} f(x) = 1$
+  \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -186,6 +266,8 @@
         \end{tikzpicture}
 \end{frame}  
 
+% HIer noch L'Hopital einfügen
+\subsection{Ableitung}
 \begin{frame}
   \frametitle{Differentialrechnung}
   \framesubtitle{Ableitungen und Ableitungsregeln}
@@ -250,6 +332,7 @@ Definition: $$f'(x_0)=\frac{df}{dx}(x_0)=\lim_{x \to x_0} \frac{f(x)-f(x_0)}{x -
   
 \end{frame}
 
+\subsection{Extremwertberechnung}
 \begin{frame}
   \frametitle{Differentialrechnung}
   \framesubtitle{Die Bedeutung der ersten Ableitung für die Extremwertberechnung}
