@@ -73,6 +73,34 @@
   $$r\approx 2,8\%$$
 \end{frame}
 
+\subsection{Unterjährliche Zinszahlungen}
+\begin{frame}
+  \frametitle{Jährliche und Unterjährliche Zinszahlungen}
+  Wird ein Kapital $P$ $m$-mal unterjährig verzinst, so wird der Jahreszins $r$ (auch nomineller Zins genannt) durch die Anzahl
+  an Zinszahlungen $m$ geteilt. Für den unterjährigen Zins gilt also $r_u = \frac{r}{m}$.
+
+  Der Endbetrag $A$ nach $t$ Jahren ergibt sich dann als:
+  \[A_t = P(1+r_u)^{m\cdot t}\]
+
+  Der interne Jahreszins, bzw. effektive Jahreszins ergibt sich dann als:
+  $$r_{eff}=(1+r_u)^m-1$$
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stetiger Zins - $m\to\infty$}
+  Was passiert, wenn wir $m\to \infty$ gehen lassen? Also sozusagen kontinuierlich Zinsen zahlen?
+  \begin{align*}
+    A_t &= \lim_{m\to\infty} P(1+r_u)^{m\cdot t}=P[\lim_{m\to\infty} (1+\frac{r}{m})^{m}] ^t\\  
+        &=P\cdot e^{r\cdot t}
+  \end{align*}
+  
+  \vspace*{2cm}
+
+  Ohne Beweis verwenden wir $\lim_{n\to\infty}(1+\frac{1}{n})^n=e$, bzw. $\lim_{n\to\infty}(1+\frac{x}{n})^n=e^x$.
+\end{frame}
+
+
 \subsection{Barwertmethode}
 \begin{frame}
   \frametitle{Barwertmethode}
@@ -115,6 +143,8 @@
     \end{itemize}
     Welche Zahlungsvariante sollte, wenn ein risikoloser Zins von $4\%$ vorliegt, unter Kostenaspekten gewählt werden? Was ändert sich bei $7\%$ Zinsen?
 \end{frame}
+
+
 
 \subsection{Kreditarten}
 \begin{frame}
@@ -167,7 +197,7 @@
   \begin{itemize}
     \item Für die Annuität $A$ gilt: $$ A = K \cdot q^n \cdot \frac{1-q}{1-q^n}$$
     \item Für den Kreditbetrag $K$ gilt: $$ K = A\cdot \frac{1-q^n}{(q^n-q^{n+1})}$$
-    \item Für die Laufzeit $n$ gilt: $$ n =     \frac{\ln(\frac{A}{1-q})-\ln(K+\frac{A}{1-q})}{\ln(q)}$$
+    \item Für die Laufzeit $n$ gilt: $$ n =     \frac{\ln(A)-\ln(K(1-q)+A)}{\ln(q)}$$
   \end{itemize}
 \end{frame}
 
