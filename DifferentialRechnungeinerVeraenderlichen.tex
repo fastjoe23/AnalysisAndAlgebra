@@ -31,7 +31,7 @@
       \begin{itemize}
         \item Definitionsbereich und Wertebereich
         \item Injektivität, Surjektivität, Bijektivität
-        \item Differentierbarkeit
+        \item Differenzierbarkeit
       \end{itemize}
   \end{itemize}
 \end{frame}
@@ -131,15 +131,9 @@
   \frametitle{Funktionen und ihre Eigenschaften}
   \framesubtitle{Grenzwerte und Stetigkeit}
 
-  \begin{itemize}
-    \item Der \textbf{Grenzwert} $L$ einer Funktion $f(x)$ für $x$ gegen einen bestimmten Wert $a$ beschreibt das Verhalten der Funktion in der Nähe von $a$.
+  Der \textbf{Grenzwert} $L$ einer Funktion $f(x)$ für $x$ gegen einen bestimmten Wert $a$ beschreibt das Verhalten der Funktion in der Nähe von $a$.
     Schreibweise: $$\lim_{x \to a} f(x) = L$$
-    \item \textbf{Stetigkeit} einer Funktion:
-      \begin{itemize}
-        \item Eine Funktion $f(x)$ heißt \textbf{stetig} an der Stelle $a$, wenn gilt $$\lim_{x \to a} f(x) = f (\lim_{x \to a} x) = f(a) $$  und $f(a)$ definiert ist.
-        \item Eine Funktion ist \textbf{stetig auf einem Intervall}, wenn sie an jeder Stelle in diesem Intervall stetig ist.
-      \end{itemize}
-  \end{itemize}
+ 
 \end{frame}
 
 \begin{frame}{Beispiele für Funktionen und ihre Grenzwerte}
@@ -219,6 +213,14 @@
     $\lim\limits_{x \to a^+} f(x) = 1$
   \end{columns}
 \end{frame}
+\begin{frame}
+  \frametitle{Stetigkeit}
+  \textbf{Stetigkeit} einer Funktion:
+  \begin{itemize}
+    \item Eine Funktion $f(x)$ heißt \textbf{stetig} an der Stelle $a$, wenn gilt $$\lim_{x \to a} f(x) = f (\lim_{x \to a^-} x) =f (\lim_{x \to a^+} x) = f(a) $$  und $f(a)$ definiert ist.
+    \item Eine Funktion ist \textbf{stetig auf einem Intervall}, wenn sie an jeder Stelle in diesem Intervall stetig ist.
+  \end{itemize}
+\end{frame}
 
 \begin{frame}
     \frametitle{Funktionen und ihre Eigenschaften}
@@ -286,6 +288,30 @@ Definition: $$f'(x_0)=\frac{df}{dx}(x_0)=\lim_{x \to x_0} \frac{f(x)-f(x_0)}{x -
 
 \end{tikzpicture} 
 \end{center}   
+\end{frame}
+
+\begin{frame}
+  \frametitle{Differenzierbarkeit und stetige Differenzierbarkeit}
+  Eine Funktion $f$ heißt:
+  \begin{itemize}
+    \item \textbf{differenzierbar} an der Stelle $x_0$, wenn $f'(x_0)$ existiert.
+    \item \textbf{differenzierbar} auf dem Intervall $D$, wenn $f'(x_0)$ für alle $x_0 \in D$ existiert.
+    \item \textbf{stetig differenzierbar}, falls $f$ differenzierbar und $f'$ stetig ist.
+  \end{itemize}
+ 
+  \vspace{1em}
+
+  $f'(x_0)$ existiert, falls $f'(\lim_{x\to x_0^-})$ und $f'(\lim_{x\to x_0^+})$ existieren und es gilt:
+  $$f'(\lim_{x\to x_0^-}x) = f'(\lim_{x\to x_0^+}x)$$
+\end{frame}
+
+\begin{frame}
+  Es gilt: Ist eine Funktion $f$ an einer Stelle $x_0$ differenzierbar, dann ist $f$ an dieser Stelle auch stetig.
+
+  \vspace{1em}
+
+  Achtung: Die Umkehrung gilt nicht. Es gibt durchaus stetige Funktionen, die an bestimmten Stellen nicht differenzierbar sind.
+
 \end{frame}
 
 \begin{frame}
@@ -393,6 +419,77 @@ Um Extremwerte einer Funktion zu finden, suchen wir nach Stellen, an denen die S
     \item Optimierung: Finden von Extremstellen (Minimum oder Maximum) einer Funktion
     \item Anwendungen in der Datenanalyse, Modellierung von Geschäftsprozessen und Entscheidungsunterstützung
   \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Numerische Verfahren}
+    \begin{itemize}
+    \item Fast alle diese Anwendungen lassen sich durch Gleichungen modellieren.
+    \item Lösungen dieser Gleichungen können komplex oder sogar nicht analytisch berechenbar sein.
+  \end{itemize}
+
+  $\Longrightarrow$ Solche Gleichungen können durch \textit{numerische Verfahren} gelöst werden. (Also durch einen Algorithmus.)
+
+  \vspace*{1em}
+
+  Für die Nullstellenbestimmung wird oft das \textbf{Newton-Verfahren} verwendet.
+\end{frame}
+
+\begin{frame}{Das Newton-Verfahren}
+  Vorgehen beim Newton-Verfahren:
+
+  \begin{enumerate}
+    \item Beginnen Sie mit einer Schätzung $x_0$ der Nullstelle.
+    \item Verwenden Sie die Tangente an der Stelle $x_0$ als Annäherung an die Funktion.
+    \item Finden Sie den Schnittpunkt der Tangente mit der x-Achse als nächste Schätzung $x_1$.
+    \item Wiederholen Sie diesen Prozess, bis eine ausreichend genaue Näherung erreicht ist.
+  \end{enumerate}
+
+  Iterationsvorschrift:
+
+  $$
+    x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \quad n = 0,1,2,...
+  $$
+  wichtig $f'(x_n)\neq 0$.
+\end{frame}
+
+\begin{frame}{Newton-Verfahren: Grafische Darstellung}
+  \begin{center}
+    \begin{tikzpicture}
+      % Koordinatenachsen
+      \draw[->] (-2,0) -- (4,0) node[below] {$x$};
+      \draw[->] (0,-1) -- (0,5) node[right] {$f(x)=(x-1)^2$};
+      
+      % Funktion f(x)
+      \draw[scale=1,domain=-1.2:3.2,smooth,variable=\x,blue] plot ({\x},{(\x-1)^2});
+      % x0
+      \node[circle,draw,fill,inner sep=1pt,label=below:{$x_0$}] at (3,0) {};
+      % Tangente
+      \uncover<2->{
+        \draw[scale=1,domain=1.95:3.1,variable=\x,red] plot ({\x},{4*\x-8});
+        \draw[->,dashed] (3,0) -- (3,4) node[above] {};
+        \draw[] (3,4) node[right]{$f(x_0)$};
+      }
+      
+      %x_1
+      \uncover<3->{
+        \node[circle,draw,fill,inner sep=1pt,label=below:{$x_1$}] at (2,0) {};
+        \draw[->,dashed] (2,0) -- (2,1) node[left] {$f(x_1)$};
+      }
+      
+      %Tangente      
+      \uncover<4->{
+        \draw[scale=1,domain=1.45:2.05,variable=\x,red] plot ({\x},{2*\x-3});
+      }
+
+      %x_2
+      \uncover<5->{
+        \node[circle,draw,fill,inner sep=1pt,label=below:{$x_2$}] at (1.5,0) {};
+        \draw[->,dashed] (1.5,0) -- (1.5,0.25) node[left] {$f(x_2)$};
+        \draw[scale=1,domain=1.15:1.55,variable=\x,red] plot ({\x},{\x-1.25});
+      }
+    \end{tikzpicture}
+  \end{center}
 \end{frame}
 
 \end{document}
