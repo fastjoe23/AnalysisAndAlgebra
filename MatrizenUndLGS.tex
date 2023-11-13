@@ -65,7 +65,48 @@ D = \begin{bmatrix}
     15 & 16 & 17 & 18 \\
 \end{bmatrix}
 \]
+\end{frame}
 
+\begin{frame}{Vektoren}
+  Vektoren sind spezielle Matrizen mit nur einer Spalte oder einer Zeile.
+  \begin{itemize}
+  
+    \item Ein \(n\)-dimensionaler Spaltenvektor kann als \(n \times 1\)-Matrix geschrieben werden:
+      \[
+        \mathbf{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix}
+      \]
+    \item Ein \(m\)-dimensionaler Zeilenvektor kann als \(1 \times m\)-Matrix geschrieben werden:
+      \[
+        \mathbf{u} = \begin{bmatrix} u_1 & u_2 & \ldots & u_m \end{bmatrix}
+      \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Transponierte Matrix}
+  Die transponierte Matrix \(\mathbf{A}^T\) einer \(m \times n\)-Matrix \(\mathbf{A}\) wird erhalten, indem man die Zeilen und Spalten vertauscht:
+  \[
+    \mathbf{A} = \begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{bmatrix} \quad
+    \Rightarrow \quad
+    \mathbf{A}^T = \begin{bmatrix} a_{11} & a_{21} & a_{31} \\ a_{12} & a_{22} & a_{32} \end{bmatrix}
+  \]
+  
+  Allgemein:
+  \[
+    (\mathbf{A}^T)_{ij} = A_{ji}
+  \]
+
+  Beispiel:
+  \[A= \begin{bmatrix}
+    1 & 2 & 3\\
+    4 & 5 & 6
+  \end{bmatrix}
+  \Rightarrow \quad
+  A^T = \begin{bmatrix}
+    1 & 4\\
+    2 & 5\\
+    3 & 6
+  \end{bmatrix}
+    \]
 \end{frame}
 
 \subsection{Rechenregeln für Matrizen}
