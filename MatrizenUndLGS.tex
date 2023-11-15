@@ -12,6 +12,125 @@
 
 \begin{document}
 
+
+\section{Lineares Gleichungssysteme }
+\begin{frame}
+  \frametitle{Beispiel: Ticketkauf}
+  
+  Sie möchten Tickets für ein Konzert kaufen. Der Preis für eine Eintrittskarte beträgt $50$ Euro und der Preis für eine VIP-Karte beträgt $120$ Euro. Sie möchten insgesamt 25 Tickets kaufen und dafür genau 1600 Euro ausgeben. Wie viele Eintrittskarten und wie viele VIP-Karten können Sie kaufen?
+  
+\end{frame}
+
+
+\begin{frame} 
+  
+  Um dieses Problem zu lösen, können wir ein lineares Gleichungssystem aufstellen:
+  
+    \begin{align*}
+    x &+ y &= 25 \\
+    50x &+ 120y &= 1600 \\
+  \end{align*}
+  
+  
+  Die erste Gleichung stellt sicher, dass insgesamt 25 Tickets gekauft werden, während die zweite sicherstellt, dass der Gesamtpreis 1600€ beträgt.
+\end{frame}
+
+
+\subsection{Beispiel: Lösung eines Gleichungssystems mit dem Gauss'schen Eliminationsverfahren}
+\begin{frame}
+  \frametitle{Lösung eines Gleichungssystems mit dem Gauss'schen Eliminationsverfahren}
+  Um dieses Gleichungssystem mit dem Gauss'schen Eliminationsverfahren zu lösen, gehen wir wie folgt vor:
+  
+  \vspace{0.3cm}
+  
+  \textbf{Schritt 1:} Multipliziere die erste Gleichung mit 50:
+  
+  \[
+  \begin{aligned}
+    50x + 50y &= 1250 \\
+    50x + 120y &= 1600 \\
+  \end{aligned}
+  \]
+  
+  \textbf{Schritt 2:} Subtrahiere die erste Gleichung von der zweiten Gleichung:
+  
+  \[
+  70y = 350 \quad \Rightarrow \quad y = 5
+  \]
+  
+  \textbf{Schritt 3:} Setze den Wert von $y$ in die erste Gleichung ein und löse nach $x$ auf:
+  
+  \[
+  x + 5 = 25 \quad \Rightarrow \quad x = 20
+  \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Der Gaußsche Algorithmus}
+  
+  Der Gaußsche Algorithmus ermöglicht es, ein LGS in eine einfache Form zu bringen und die Lösungen des Gleichungssystems zu bestimmen.
+  \vspace{0.3cm}
+  
+  Erlaub sind dabei folgende Rechenoperationen:
+  
+  \begin{itemize}
+    \item Vertauschung zweier Zeilen
+    \item Multiplikation einer Gleichung mit einer Konstanten $\lambda \neq 0$
+    \item Addition eines Vielfachen einer Gleichung zu einer anderen Gleichung
+    \item Vertauschen zweier Unbekannter, d.h. vertauschen zweier Spalten
+  \end{itemize}
+  
+  \vspace{0.3cm}
+  Diese Rechenoperationen verändern die Lösung des Gleichungssystem nicht.  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineare Gleichungssysteme und Matrizen}
+  
+  Lineare Gleichungssysteme lassen sich auf elegante Weise mit Matrizen darstellen. Betrachten wir das allgemeine lineare Gleichungssystem:
+  
+    \begin{align*}
+    a_{11}x_1 &+ a_{12}x_2 + \ldots + a_{1n}x_n &= b_1 \\
+    a_{21}x_1 &+ a_{22}x_2 + \ldots + a_{2n}x_n &= b_2 \\
+   &\vdots   &\vdots \\
+    a_{m1}x_1 &+ a_{m2}x_2 + \ldots + a_{mn}x_n &= b_m \\
+  \end{align*}
+  mit Koeffizenten $a_{ij}$, $i\leq n$ und $j\leq m$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Lineare Gleichungssysteme und Matrizen}
+  Dieses Gleichungssystem kann in Matrixform geschrieben werden als:
+  
+  \[
+  \begin{bmatrix}
+    a_{11} & a_{12} & \ldots & a_{1n} \\
+    a_{21} & a_{22} & \ldots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \ldots & a_{mn} \\
+  \end{bmatrix}
+  \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n \\
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_m \\
+  \end{bmatrix}
+  \]
+  
+  Die linke Matrix wird als \textbf{Koeffizientenmatrix} bezeichnet und die rechte Spaltenmatrix enthält die Lösungen der Gleichungen.
+  
+  \vspace{0.3cm}
+  
+  Durch die Verwendung von Matrizen können lineare Gleichungssysteme kompakt dargestellt und effizient gelöst werden. Wichtiger noch, über sie kann die Lösbarkeit von Gleichungssystem bestimmt werden.
+\end{frame}
+
 \subsection{Matrizen}
 \begin{frame}
   \frametitle{Matrizen}
@@ -385,124 +504,6 @@ D = \begin{bmatrix}
   \end{center}
 \end{frame}
 
-\section{Lineares Gleichungssysteme }
-\begin{frame}
-  \frametitle{Beispiel: Ticketkauf}
-  
-  Sie möchten Tickets für ein Konzert kaufen. Der Preis für eine Eintrittskarte beträgt $50$ Euro und der Preis für eine VIP-Karte beträgt $120$ Euro. Sie möchten insgesamt 25 Tickets kaufen und dafür genau 1600 Euro ausgeben. Wie viele Eintrittskarten und wie viele VIP-Karten können Sie kaufen?
-  
-\end{frame}
-
-
-\begin{frame} 
-  
-  Um dieses Problem zu lösen, können wir ein lineares Gleichungssystem aufstellen:
-  
-    \begin{align*}
-    x &+ y &= 25 \\
-    50x &+ 120y &= 1600 \\
-  \end{align*}
-  
-  
-  Die erste Gleichung stellt sicher, dass insgesamt 25 Tickets gekauft werden, während die zweite sicherstellt, dass der Gesamtpreis 1600€ beträgt.
-\end{frame}
-
-
-\subsection{Beispiel: Lösung eines Gleichungssystems mit dem Gauss'schen Eliminationsverfahren}
-\begin{frame}
-  \frametitle{Lösung eines Gleichungssystems mit dem Gauss'schen Eliminationsverfahren}
-  Um dieses Gleichungssystem mit dem Gauss'schen Eliminationsverfahren zu lösen, gehen wir wie folgt vor:
-  
-  \vspace{0.3cm}
-  
-  \textbf{Schritt 1:} Multipliziere die erste Gleichung mit 50:
-  
-  \[
-  \begin{aligned}
-    50x + 50y &= 1250 \\
-    50x + 120y &= 1600 \\
-  \end{aligned}
-  \]
-  
-  \textbf{Schritt 2:} Subtrahiere die erste Gleichung von der zweiten Gleichung:
-  
-  \[
-  70y = 350 \quad \Rightarrow \quad y = 5
-  \]
-  
-  \textbf{Schritt 3:} Setze den Wert von $y$ in die erste Gleichung ein und löse nach $x$ auf:
-  
-  \[
-  x + 5 = 25 \quad \Rightarrow \quad x = 20
-  \]
-\end{frame}
-
-\begin{frame}
-  \frametitle{Der Gaußsche Algorithmus}
-  
-  Der Gaußsche Algorithmus ermöglicht es, ein LGS in eine einfache Form zu bringen und die Lösungen des Gleichungssystems zu bestimmen.
-  \vspace{0.3cm}
-  
-  Erlaub sind dabei folgende Rechenoperationen:
-  
-  \begin{itemize}
-    \item Vertauschung zweier Zeilen
-    \item Multiplikation einer Gleichung mit einer Konstanten $\lambda \neq 0$
-    \item Addition eines Vielfachen einer Gleichung zu einer anderen Gleichung
-    \item Vertauschen zweier Unbekannter, d.h. vertauschen zweier Spalten
-  \end{itemize}
-  
-  \vspace{0.3cm}
-  Diese Rechenoperationen verändern die Lösung des Gleichungssystem nicht.  
-\end{frame}
-
-\begin{frame}
-  \frametitle{Lineare Gleichungssysteme und Matrizen}
-  
-  Lineare Gleichungssysteme lassen sich auf elegante Weise mit Matrizen darstellen. Betrachten wir das allgemeine lineare Gleichungssystem:
-  
-    \begin{align*}
-    a_{11}x_1 &+ a_{12}x_2 + \ldots + a_{1n}x_n &= b_1 \\
-    a_{21}x_1 &+ a_{22}x_2 + \ldots + a_{2n}x_n &= b_2 \\
-   &\vdots   &\vdots \\
-    a_{m1}x_1 &+ a_{m2}x_2 + \ldots + a_{mn}x_n &= b_m \\
-  \end{align*}
-  mit Koeffizenten $a_{ij}$, $i\leq n$ und $j\leq m$.
-\end{frame}
-
-\begin{frame}
-  \frametitle{Lineare Gleichungssysteme und Matrizen}
-  Dieses Gleichungssystem kann in Matrixform geschrieben werden als:
-  
-  \[
-  \begin{bmatrix}
-    a_{11} & a_{12} & \ldots & a_{1n} \\
-    a_{21} & a_{22} & \ldots & a_{2n} \\
-    \vdots & \vdots & \ddots & \vdots \\
-    a_{m1} & a_{m2} & \ldots & a_{mn} \\
-  \end{bmatrix}
-  \begin{bmatrix}
-    x_1 \\
-    x_2 \\
-    \vdots \\
-    x_n \\
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    b_1 \\
-    b_2 \\
-    \vdots \\
-    b_m \\
-  \end{bmatrix}
-  \]
-  
-  Die linke Matrix wird als \textbf{Koeffizientenmatrix} bezeichnet und die rechte Spaltenmatrix enthält die Lösungen der Gleichungen.
-  
-  \vspace{0.3cm}
-  
-  Durch die Verwendung von Matrizen können lineare Gleichungssysteme kompakt dargestellt und effizient gelöst werden. Wichtiger noch, über sie kann die Lösbarkeit von Gleichungssystem bestimmt werden.
-\end{frame}
-
 
 \begin{frame}
   \frametitle{Lösbarkeitskriterium}
@@ -524,6 +525,34 @@ D = \begin{bmatrix}
   Das Lösbarkreitskriterium ermöglicht es, die Lösbarkeit eines linearen Gleichungssystems zu überprüfen und gibt Aufschluss über die Anzahl der möglichen Lösungen.
 \end{frame}
 
+\begin{frame}
+  \frametitle{Beispiel zur Lösbarkeit}
+  Gegeben sei das lineare Gleichungssystem:
+  \[
+    \begin{aligned}
+      2x + 3y &= 7 \\
+      1x + 4y &= 10
+    \end{aligned}
+  \]
+
+  Die Koeffizientenmatrix $A$ und die erweiterte Koeffizientenmatrix $(A, b)$ lauten dann:
+
+  \[
+    A=\begin{bmatrix}
+      2 & 3  \\
+      1 & 4
+    \end{bmatrix}
+    \quad
+    (A,b)=\begin{bmatrix}
+      2 & 3 & | & 7 \\
+      1 & 4 & | & 10
+    \end{bmatrix}
+  \]
+  Dann gilt:
+  \[rg(A) = 2 \text{ und } rg(A,b) = 2\]
+  Das Gleichungssystem hat demnach genau eine Lösung.
+
+\end{frame}
 \subsection{Inverse einer Matrix}
 \begin{frame}
   \frametitle{Inverse einer Matrix}
