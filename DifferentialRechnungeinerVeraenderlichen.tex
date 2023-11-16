@@ -1,6 +1,7 @@
 \documentclass{beamer}
 \usepackage[ngerman]{babel}
 \usepackage{tikz}
+\usepackage{pgfplots}
 \usepackage{booktabs}
 
 \usetheme{DHBW}
@@ -403,8 +404,26 @@ Um Extremwerte einer Funktion zu finden, suchen wir nach Stellen, an denen die S
     fürs Lernen aufwenden sollten. 
 
     Nehmen wir an für Ihre Studienleistung in Abhängigkeit der Stunden pro Woche gelte:
-    $$L(x)=-0.001x^3-0.059x^2+9.942x$$
+    $$L(x)=-x^3+28x^2+2940x$$
   Wie viele Stunden sollten Sie also pro Woche lernen?
+
+  \begin{flushright}
+    \begin{tikzpicture}[scale=0.5]
+      \begin{axis}[
+        xlabel={$x$},
+        ylabel={$L(x)$},
+        domain=0:73,
+        samples=100,
+        grid=both,
+        legend entries={$L(x)=-x^3+28x^2+2940x$},
+        legend pos=south east,
+        axis lines=left,
+        enlargelimits=0.05, % Vergrößert den Bereich um das Diagramm um 10%
+      ]
+        \addplot[blue,ultra thick]{-x^3 + 28*x^2 + 2940*x};
+      \end{axis}
+    \end{tikzpicture}
+  \end{flushright}
 \end{frame}
 
 
@@ -416,7 +435,7 @@ Um Extremwerte einer Funktion zu finden, suchen wir nach Stellen, an denen die S
   \begin{itemize}
     \item Kostenfunktionen und Erlösfunktionen in der Wirtschaftsinformatik
     \item Marginalanalyse: Bestimmung des Grenznutzens, der Grenzkosten und des optimalen Outputs
-    \item Optimierung: Finden von Extremstellen (Minimum oder Maximum) einer Funktion
+    \item Portfolio-Optimierung: Finden des optimalen Anlageportfolios 
     \item Anwendungen in der Datenanalyse, Modellierung von Geschäftsprozessen und Entscheidungsunterstützung
   \end{itemize}
 \end{frame}
