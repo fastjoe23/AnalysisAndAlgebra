@@ -413,7 +413,7 @@ D = \begin{bmatrix}
   \frametitle{Rang einer Matrix}
   
   \begin{block}{Rang einer Matrix}
-  Der Spaltenrang (Zeilenrang) einer $(m, n)$-Matrix $A$ ist definiert als die maximale Anzahl linear unabhängiger Spaltenvektoren (Zeilenvektoren) von A. Der gemeinsame Wert, der sowohl den Spaltenrang als auch den Zeilenrang darstellt, wird als Rang der Matrix A bezeichnet und mit $rg(A)$ bezeichnet.
+  Der Rang einer $(m, n)$-Matrix $A$ ist definiert als die maximale Anzahl linear unabhängiger Spaltenvektoren von $A$ und wird mit $rg(A)$ bezeichnet.
   \end{block}
   
   \vspace{0.3cm}
@@ -530,8 +530,8 @@ D = \begin{bmatrix}
   Gegeben sei das lineare Gleichungssystem:
   \[
     \begin{aligned}
-      2x + 3y &= 7 \\
-      1x + 4y &= 10
+      2x_1 + x_2 &= 13 \\
+      -4x_1 + x_2 &= 1
     \end{aligned}
   \]
 
@@ -539,13 +539,13 @@ D = \begin{bmatrix}
 
   \[
     A=\begin{bmatrix}
-      2 & 3  \\
-      1 & 4
+      2 & 1  \\
+      -4 & 1
     \end{bmatrix}
     \quad
     (A,b)=\begin{bmatrix}
-      2 & 3 & | & 7 \\
-      1 & 4 & | & 10
+      2 & 1 & | & 13 \\
+      -4 & 1 & | & 1
     \end{bmatrix}
   \]
   Dann gilt:
@@ -558,9 +558,9 @@ D = \begin{bmatrix}
   \frametitle{Inverse einer Matrix}
   
   Die Inverse einer quadratischen Matrix $A$ wird als $A^{-1}$ bezeichnet. Es gilt:
-  $$ A \cdot A^{-1} = I$$
+  $$ A \cdot A^{-1} = A^{-1} \cdot A =  I$$
   \vspace{0.3cm}
-  Die Inverse einer Matrix kann wieder mit dem Eliminationsverfahren ermittelt werden. Man startet mit
+  Die Inverse einer Matrix kann mit dem Eliminationsverfahren von Gauss ermittelt werden. Man startet mit
   \begin{center}
     \begin{tabular}{c|c}
       A & I\\      
@@ -571,7 +571,7 @@ D = \begin{bmatrix}
   \begin{center}
     \begin{tabular}{c|c}
       A & I\\ 
-      \vdots \\
+      \vdots & \vdots \\
       I & $A^{-1}$
     \end{tabular}
   \end{center}
@@ -595,16 +595,16 @@ D = \begin{bmatrix}
   Betrachten wir die Matrix $A$ und den Vektor $\mathbf{b}$:
   
   \[
-  A = \begin{bmatrix} 2 & 3 \\ 1 & 4 \end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 7 \\ 10 \end{bmatrix}
+  A = \begin{bmatrix} 2 & 1 \\ -4 & 1 \end{bmatrix}, \quad \mathbf{b} = \begin{bmatrix} 13 \\ 1 \end{bmatrix}
   \]
   
   Um das Gleichungssystem $A \mathbf{x} = \mathbf{b}$ zu lösen, berechnen wir die Inverse von $A$ und multiplizieren sie mit $\mathbf{b}$:
   
   \[
-  A^{-1} = \begin{bmatrix} 4/5 & -3/5 \\ -1/5 & 2/5 \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix} 4/5 & -3/5 \\ -1/5 & 2/5 \end{bmatrix} \begin{bmatrix} 7 \\ 10 \end{bmatrix} = \begin{bmatrix} -\frac{2}{5} \\ \frac{13}{5} \end{bmatrix}
+  A^{-1} = \begin{bmatrix} 1/6 & -1/6 \\ 2/3 & 1/3 \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix}  1/6 & -1/6 \\ 2/3 & 1/3  \end{bmatrix} \begin{bmatrix} 13 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 \\ 9 \end{bmatrix}
   \]
   
-  Daher ist die Lösung des Gleichungssystems $x_1 = -\frac{2}{5}$ und $x_2 = \frac{13}{5}$. 
+  Daher ist die Lösung des Gleichungssystems $x_1 = 2$ und $x_2 = 9$. 
 \end{frame}
 
 
